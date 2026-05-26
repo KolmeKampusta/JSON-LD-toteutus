@@ -1,0 +1,17 @@
+<script>
+(function() {
+  var blocks = document.querySelectorAll('script[type="application/ld+json"]');
+  console.group('%c[Schema.org]', 'color:#fff;background:#496499;padding:2px 8px;border-radius:4px;font-weight:bold');
+  console.log('Found ' + blocks.length + ' JSON-LD block(s) on this page');
+  blocks.forEach(function(b, i) {
+    try {
+      var data = JSON.parse(b.textContent);
+      var type = Array.isArray(data['@type']) ? data['@type'].join('+') : data['@type'];
+      console.log('  [' + (i+1) + '] @type=' + type + ', @id=' + (data['@id'] || '(none)'));
+    } catch (e) {
+      console.warn('  [' + (i+1) + '] INVALID JSON', e.message);
+    }
+  });
+  console.groupEnd();
+})();
+</script>

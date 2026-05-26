@@ -1,0 +1,39 @@
+# Node dependencies (regenerable via `npm install docx`)
+node_modules/
+package-lock.json
+package.json
+
+# Investigation temp files (curled HTML from live site during the audit)
+_audit_html/
+
+# Playwright session artifacts (browser state, screenshots)
+.playwright-mcp/
+
+# Claude session settings (per-machine config, not part of the project)
+.claude/
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Office temporary lock files
+~$*.docx
+~$*.doc
+~$*.xlsx
+.~lock.*#
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Logs
+*.log

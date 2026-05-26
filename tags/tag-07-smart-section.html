@@ -1,0 +1,136 @@
+<script>
+(function() {
+  var ORG_ID  = "https://www.kolmekampusta.fi/#organization";
+  var SITE_ID = "https://www.kolmekampusta.fi/#website";
+
+  function meta(sel) {
+    var el = document.querySelector(sel);
+    return el ? el.getAttribute('content') : null;
+  }
+  function clean(o) {
+    if (Array.isArray(o)) {
+      var arr = o.map(clean).filter(function(v){ return v !== null && v !== undefined && v !== ''; });
+      return arr.length === 0 ? null : arr;
+    }
+    if (o && typeof o === 'object') {
+      var out = {};
+      Object.keys(o).forEach(function(k){
+        var v = clean(o[k]);
+        if (v !== null && v !== undefined && v !== '') out[k] = v;
+      });
+      return Object.keys(out).length === 0 ? null : out;
+    }
+    return o;
+  }
+  function inject(obj) {
+    var cleaned = clean(obj);
+    if (!cleaned) return;
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify(cleaned);
+    document.head.appendChild(s);
+  }
+
+  var path = location.pathname.replace(/^\/(fi|en|sv)\//, '/');
+  var canonical = (document.querySelector('link[rel="canonical"]') || {}).href || location.href;
+  var lang = document.documentElement.lang || 'fi';
+  var ogTitle = meta('meta[property="og:title"]') || document.title;
+  var ogDescription = meta('meta[property="og:description"]') || meta('meta[name="description"]');
+  var ogImage = meta('meta[property="og:image"]');
+
+  if (/^\/(meista|about-us)\/(yhteystiedot|contact-information)$/.test(path)) {
+    inject({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "@id": canonical + "#contactpage",
+      "url": canonical,
+      "name": ogTitle,
+      "description": ogDescription,
+      "inLanguage": lang,
+      "isPartOf": { "@id": SITE_ID },
+      "about": { "@id": ORG_ID },
+      "mainEntity": { "@id": ORG_ID }
+    });
+    return;
+  }
+
+  if (/^\/(meista|about-us)\//.test(path)) {
+    inject({
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": canonical + "#aboutpage",
+      "url": canonical,
+      "name": ogTitle,
+      "description": ogDescription,
+      "inLanguage": lang,
+      "isPartOf": { "@id": SITE_ID },
+      "about": { "@id": ORG_ID }
+    });
+    return;
+  }
+
+  if (/^\/(ryhmat-ja-leirit|groups-and-camps)\//.test(path)) {
+    inject({
+      "@context": "https://schema.org",
+      "@type": ["TouristTrip", "Product"],
+      "@id": canonical + "#trip",
+      "name": ogTitle,
+      "description": ogDescription,
+      "image": ogImage,
+      "url": canonical,
+      "category": "Group accommodation and program package",
+      "touristType": ["Schools", "Youth groups", "Confirmation camps"],
+      "provider": { "@id": ORG_ID },
+      "brand": { "@id": ORG_ID }
+    });
+    return;
+  }
+
+  var knownPrograms = /\/koulutus\/koulutukset\/(ammatillinen-koulutus|oppisopimuskoulutus|taydennyskoulutus|vapaan-sivistystyon-koulutus|hakijalle)/;
+  if ((/^\/koulutus\/koulutukset\//.test(path) || /^\/education\//.test(path)) && !knownPrograms.test(path)) {
+    inject({
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "@id": canonical + "#course",
+      "name": ogTitle,
+      "description": ogDescription,
+      "image": ogImage,
+      "url": canonical,
+      "inLanguage": lang,
+      "provider": { "@id": ORG_ID }
+    });
+    return;
+  }
+
+  if (/^\/vapaa-aika\/aktiviteetit\//.test(path) || /^\/leisure\/activities\//.test(path)) {
+    inject({
+      "@context": "https://schema.org",
+      "@type": "TouristAttraction",
+      "@id": canonical + "#attraction",
+      "name": ogTitle,
+      "description": ogDescription,
+      "image": ogImage,
+      "url": canonical,
+      "isAccessibleForFree": false,
+      "publicAccess": true
+    });
+    return;
+  }
+
+  if (/^\/yritykset\//.test(path) || /^\/businesses\//.test(path)) {
+    inject({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": canonical + "#service",
+      "name": ogTitle,
+      "description": ogDescription,
+      "image": ogImage,
+      "url": canonical,
+      "provider": { "@id": ORG_ID },
+      "areaServed": { "@type": "Country", "name": "Finland" },
+      "serviceType": "Corporate event services"
+    });
+    return;
+  }
+})();
+</script>

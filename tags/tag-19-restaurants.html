@@ -1,0 +1,94 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Restaurant",
+      "@id": "https://www.kolmekampusta.fi/restaurants/iso-kukkanen#restaurant",
+      "name": "Ravintola Iso-Kukkanen",
+      "url": "https://www.kolmekampusta.fi/fi/ravintolapalvelut",
+      "image": ["{{js.og.image.or.fallback}}"],
+      "description": "Pajulahden pääravintola. Monipuolinen ja maittava ruokavalikoima urheilijoille, vieraille ja paikallisille. Kanresta-konsernin operoima.",
+      "telephone": "+358-44-7755-370",
+      "email": "pajulahtivuorop@kanresta.fi",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pajulahdentie 167",
+        "addressLocality": "Lahti",
+        "addressRegion": "Päijät-Häme",
+        "postalCode": "15560",
+        "addressCountry": "FI"
+      },
+      "servesCuisine": ["Finnish", "International", "Sports Nutrition"],
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Invoice", "ePassi"],
+      "acceptsReservations": true,
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Group dining", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Buffet service", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Special diets accommodated", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Catering for events", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Brunch service", "value": true}
+      ],
+      "containedInPlace": { "@id": "https://www.kolmekampusta.fi/pajulahti#location" },
+      "parentOrganization": { "@id": "https://www.kolmekampusta.fi/#organization" }
+    },
+    {
+      "@type": "CafeOrCoffeeShop",
+      "@id": "https://www.kolmekampusta.fi/restaurants/keihas#cafe",
+      "name": "Kahvila Keihäs",
+      "alternateName": "Café Keihäs",
+      "url": "https://www.kolmekampusta.fi/fi/ravintolapalvelut",
+      "image": ["{{js.og.image.or.fallback}}"],
+      "description": "Pajulahden päivittäinen kahvila Ravintola Iso-Kukkasen rinnalla. Kahvilatuotteita ja kevyttä syötävää.",
+      "telephone": "+358-44-7755-370",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pajulahdentie 167",
+        "addressLocality": "Lahti",
+        "addressRegion": "Päijät-Häme",
+        "postalCode": "15560",
+        "addressCountry": "FI"
+      },
+      "servesCuisine": ["Coffee", "Pastries", "Light meals"],
+      "priceRange": "€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "ePassi"],
+      "containedInPlace": { "@id": "https://www.kolmekampusta.fi/pajulahti#location" },
+      "parentOrganization": { "@id": "https://www.kolmekampusta.fi/#organization" }
+    },
+    {
+      "@type": "Restaurant",
+      "@id": "https://www.kolmekampusta.fi/restaurants/rantamakasiini#restaurant",
+      "name": "Ravintola Rantamakasiini",
+      "url": "https://www.kolmekampusta.fi/fi/ravintolapalvelut",
+      "image": ["{{js.og.image.or.fallback}}"],
+      "description": "Kisakallion ravintola Lohjanjärven rannalla. Sopii yritysjuhliin, seminaareihin ja erityistapahtumiin.",
+      "telephone": "+358-50-529-6514",
+      "email": "ravintola.kisakallio@kolmekampusta.fi",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kaarina Karin tie 4",
+        "addressLocality": "Lohja",
+        "addressRegion": "Uusimaa",
+        "postalCode": "08360",
+        "addressCountry": "FI"
+      },
+      "servesCuisine": ["Finnish", "International", "Event Catering"],
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Invoice", "ePassi"],
+      "acceptsReservations": true,
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Lakeside dining", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Event venue", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Conference catering", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Group dining", "value": true}
+      ],
+      "containedInPlace": { "@id": "https://www.kolmekampusta.fi/kisakallio#location" },
+      "parentOrganization": { "@id": "https://www.kolmekampusta.fi/#organization" }
+    }
+  ]
+}
+</script>

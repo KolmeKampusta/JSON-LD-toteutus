@@ -1,0 +1,217 @@
+<script>
+(function() {
+  var FALLBACK_IMAGE = "https://www.kolmekampusta.fi/sites/default/files/2025-06/pajulahti_ilmakuva_ns_web_0869.jpg";
+  var ORG_ID  = "https://www.kolmekampusta.fi/#organization";
+  var SITE_ID = "https://www.kolmekampusta.fi/#website";
+
+  function meta(sel) {
+    var el = document.querySelector(sel);
+    return el ? el.getAttribute('content') : null;
+  }
+  function attr(sel, a) {
+    var el = document.querySelector(sel);
+    return el ? el.getAttribute(a) : null;
+  }
+  function clean(o) {
+    if (Array.isArray(o)) {
+      var arr = o.map(clean).filter(function(v){ return v !== null && v !== undefined && v !== ''; });
+      return arr.length === 0 ? null : arr;
+    }
+    if (o && typeof o === 'object') {
+      var out = {};
+      Object.keys(o).forEach(function(k){
+        var v = clean(o[k]);
+        if (v !== null && v !== undefined && v !== '') out[k] = v;
+      });
+      return Object.keys(out).length === 0 ? null : out;
+    }
+    return o;
+  }
+  function inject(obj) {
+    var cleaned = clean(obj);
+    if (!cleaned) return;
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify(cleaned);
+    document.head.appendChild(s);
+  }
+
+  var bodyClass = document.body.className || '';
+  var bundle = (bodyClass.match(/page-node-type-(\S+)/) || [])[1] || 'page';
+  var isFront = /\bpath-frontpage\b/.test(bodyClass);
+
+  var canonical = attr('link[rel="canonical"]', 'href') || location.href;
+  var lang = document.documentElement.lang || 'fi';
+  var ogTitle = meta('meta[property="og:title"]') || document.title;
+  var ogDescription = meta('meta[property="og:description"]') || meta('meta[name="description"]');
+  var ogImage = meta('meta[property="og:image"]');
+  var ogImageWidth = meta('meta[property="og:image:width"]');
+  var ogImageHeight = meta('meta[property="og:image:height"]');
+  var ogImageAlt = meta('meta[property="og:image:alt"]');
+  var ogUpdated = meta('meta[property="og:updated_time"]');
+
+  var imageObj = ogImage ? {
+    "@type": "ImageObject",
+    "url": ogImage,
+    "width": ogImageWidth ? parseInt(ogImageWidth, 10) : null,
+    "height": ogImageHeight ? parseInt(ogImageHeight, 10) : null,
+    "caption": ogImageAlt || null
+  } : null;
+
+  if (isFront) {
+    inject({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": canonical + "#webpage",
+      "url": canonical,
+      "name": ogTitle,
+      "description": ogDescription,
+      "image": imageObj || FALLBACK_IMAGE,
+      "inLanguage": lang,
+      "isPartOf": { "@id": SITE_ID },
+      "about": { "@id": ORG_ID },
+      "publisher": { "@id": ORG_ID },
+      "dateModified": ogUpdated
+    });
+    return;
+  }
+
+  if (bundle === 'article') {
+    inject({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": canonical + "#article",
+      "mainEntityOfPage": canonical,
+      "headline": ogTitle,
+      "description": ogDescription,
+      "image": imageObj,
+      "datePublished": ogUpdated,
+      "dateModified": ogUpdated,
+      "author": { "@id": ORG_ID },
+      "publisher": { "@id": ORG_ID },
+      "inLanguage": lang,
+      "isPartOf": { "@id": SITE_ID },
+      "articleSection": "Article"
+    });
+    return;
+  }
+
+  if (bundle === 'news') {
+    inject({
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "@id": canonical + "#article",
+      "mainEntityOfPage": canonical,
+      "headline": ogTitle,
+      "description": ogDescription,
+      "image": imageObj,
+      "datePublished": ogUpdated,
+      "dateModified": ogUpdated,
+      "author": { "@id": ORG_ID },
+      "publisher": { "@id": ORG_ID },
+      "inLanguage": lang,
+      "isPartOf": { "@id": SITE_ID },
+      "articleSection": "News"
+    });
+    return;
+  }
+
+  if (bundle === 'blog' || bundle === 'blogi' || /\/blogi\//.test(location.pathname)) {
+    inject({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": canonical + "#blogposting",
+      "mainEntityOfPage": canonical,
+      "headline": ogTitle,
+      "description": ogDescription,
+      "image": imageObj,
+      "datePublished": ogUpdated,
+      "dateModified": ogUpdated,
+      "author": { "@id": ORG_ID },
+      "publisher": { "@id": ORG_ID },
+      "inLanguage": lang,
+      "isPartOf": { "@id": SITE_ID },
+      "articleSection": "Blog"
+    });
+    return;
+  }
+
+  if (bundle === 'event') {
+    var dateField = document.querySelector('.field--name-field-event__date');
+    var times = dateField ? dateField.querySelectorAll('time[datetime]') : [];
+    var timeStart = times[0] ? times[0].getAttribute('datetime') : null;
+    var timeEnd = times[1] ? times[1].getAttribute('datetime') : null;
+
+    if (timeStart) {
+      var locNameEl = document.querySelector('.field--name-field-event__location-name .field__item');
+      var locName = locNameEl ? locNameEl.textContent.trim() : null;
+
+      var addrEl = document.querySelector('.field--name-field-event__location-address');
+      var addrObj = null;
+      if (addrEl) {
+        var streetEl = addrEl.querySelector('.address-line1');
+        var postalEl = addrEl.querySelector('.postal-code');
+        var localityEl = addrEl.querySelector('.locality');
+        if (streetEl && localityEl) {
+          addrObj = {
+            "@type": "PostalAddress",
+            "streetAddress": streetEl.textContent.trim(),
+            "postalCode": postalEl ? postalEl.textContent.trim() : null,
+            "addressLocality": localityEl.textContent.trim(),
+            "addressCountry": "FI"
+          };
+        }
+      }
+
+      var campusId = null;
+      var lowerName = (locName || '').toLowerCase();
+      if (/pajulahti/.test(lowerName)) campusId = "https://www.kolmekampusta.fi/pajulahti#location";
+      else if (/kisakallio/.test(lowerName)) campusId = "https://www.kolmekampusta.fi/kisakallio#location";
+      else if (/(makelanrinne|mäkelänrinne|helsink|urhea)/.test(lowerName)) campusId = "https://www.kolmekampusta.fi/makelanrinne#location";
+
+      var eventLocation = null;
+      if (campusId) {
+        eventLocation = { "@id": campusId };
+      } else if (locName && addrObj) {
+        eventLocation = { "@type": "Place", "name": locName, "address": addrObj };
+      } else if (addrObj) {
+        eventLocation = { "@type": "Place", "address": addrObj };
+      }
+
+      if (eventLocation) {
+        inject({
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          "@id": canonical + "#event",
+          "name": ogTitle,
+          "description": ogDescription,
+          "image": imageObj,
+          "url": canonical,
+          "startDate": timeStart,
+          "endDate": timeEnd || timeStart,
+          "eventStatus": "https://schema.org/EventScheduled",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "location": eventLocation,
+          "organizer": { "@id": ORG_ID },
+          "inLanguage": lang
+        });
+        return;
+      }
+    }
+  }
+
+  inject({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": canonical + "#webpage",
+    "url": canonical,
+    "name": ogTitle,
+    "description": ogDescription,
+    "image": imageObj,
+    "inLanguage": lang,
+    "isPartOf": { "@id": SITE_ID },
+    "publisher": { "@id": ORG_ID },
+    "dateModified": ogUpdated
+  });
+})();
+</script>
