@@ -16,7 +16,9 @@ GTM container: `GTM-WD3C92NG`
 | **`information-roundup.md`** | Fact-check document — every piece of data in the tags, in plain English, organized for verification |
 | **`gtm-deployment-guide.md`** | Comprehensive step-by-step for GTM deployment + Search Console indexing |
 | **`seo-yhteenveto-suomeksi.docx`** | Finnish executive summary for non-tech readers |
-| **`_build_docx.js`** | Node script that builds the Finnish Word document |
+| **`seo-jatkotehtavat-suomeksi.docx`** | Finnish SEO development roadmap for the next 6–24 months (post-schema work) |
+| **`_build_docx.js`** | Node script that builds the Finnish executive summary Word document |
+| **`_build_jatkotehtavat_docx.js`** | Node script that builds the Finnish SEO roadmap Word document |
 | `kolmekampusta-gtm-schema.md` | Original master plan (frozen, historical) |
 | `kolmekampusta-gtm-schema-refined.md` | Audit + refinement record (historical) |
 
@@ -40,14 +42,17 @@ Follow `gtm-deployment-guide.md` end-to-end. Estimated ~3 hours total spread acr
 - **"No items detected" in RRT** for Tags 2, 18, 20–23 is **normal** — those schema types have no current Google rich result feature. Schema is still valid and goes into the Knowledge Graph.
 - **For RRT validation of tags using image variable**: temporarily swap `{{js.og.image.or.fallback}}` for a real URL when pasting into Code mode. Or use RRT URL mode against the published live page.
 
-## Regenerating the Finnish Word document
+## Regenerating the Finnish Word documents
 
 ```powershell
 npm install docx --no-save
-node _build_docx.js
+node _build_docx.js              # → seo-yhteenveto-suomeksi.docx (schema implementation summary)
+node _build_jatkotehtavat_docx.js # → seo-jatkotehtavat-suomeksi.docx (post-schema SEO roadmap)
 ```
 
-The script outputs `seo-yhteenveto-suomeksi.docx`. **Warning**: regenerating overwrites any manual edits made in Word. For minor touch-ups, edit Word directly; for major rewrites, edit `_build_docx.js` and rebuild.
+**Warning**: regenerating overwrites any manual edits made in Word. For minor touch-ups, edit Word directly; for major rewrites, edit the corresponding `_build_*.js` and rebuild.
+
+`seo-yhteenveto-suomeksi.docx` covers what the schema implementation does, why, and how to maintain it. `seo-jatkotehtavat-suomeksi.docx` covers the next-phase SEO work (Google Business Profile, Core Web Vitals, content strategy, schema extensions like JobPosting, technical maintenance, AI-search optimisation) — written for the management team and content owners, not just technical staff.
 
 ## Contact
 
