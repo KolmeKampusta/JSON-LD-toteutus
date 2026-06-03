@@ -1,6 +1,6 @@
 # JSON-LD Toteutus — kolmekampusta.fi
 
-Schema.org-strukturoidun datan toteutus Kolmen kampuksen urheiluopiston (kolmekampusta.fi) verkkosivustolle Google Tag Managerin (GTM) kautta. 25 schema.org-tagia kattaa organisaation, kolme kampusta, majoituspalvelut, liikuntatilat, ravintolat, koulutusohjelmat ja sivuston yleisen rakenteen.
+Schema.org-strukturoidun datan toteutus Kolmen kampuksen urheiluopiston (kolmekampusta.fi) verkkosivustolle Google Tag Managerin (GTM) kautta. 26 schema.org-tagia kattaa organisaation, kolme kampusta, majoituspalvelut, liikuntatilat, ravintolat, koulutusohjelmat, avoimet työpaikat (Google for Jobs) ja sivuston yleisen rakenteen.
 
 GTM container: `GTM-WD3C92NG`
 
@@ -8,17 +8,21 @@ GTM container: `GTM-WD3C92NG`
 
 | File / folder | Purpose |
 |---|---|
-| **`gtm-tags-production.md`** | Master file — all 25 tag bodies + variables + triggers + constants. The canonical source for production. |
-| **`tags/`** | Per-tag files (25 × `.html`), one per GTM tag. Paste each into its corresponding GTM Custom HTML tag. |
+| **`gtm-tags-production.md`** | Master file — all 26 tag bodies + variables + triggers + constants. The canonical source for production. |
+| **`tags/`** | Per-tag files (26 × `.html`), one per GTM tag. Paste each into its corresponding GTM Custom HTML tag. |
 | **`tags/README.md`** | Tag file index + GTM variable requirement note |
 | **`scripts/`** | Python test scripts to speed up validator.schema.org / RRT testing |
 | **`scripts/README.md`** | Usage docs for `validate.py`, `open-rrt.py`, `open-validator.py` |
-| **`information-roundup.md`** | Fact-check document — every piece of data in the tags, in plain English, organized for verification |
+| **`information-roundup.md`** | Fact-check document — every piece of data in the tags, in plain English, organized for verification (narrative format) |
+| **`organization-facts-checklist.txt`** | Flat plain-text checklist of every fact in every tag — one line per field with `[ ]` markers for verification. Regenerable via `_build_facts_checklist.js` |
+| **`_build_facts_checklist.js`** | Node script that scans `tags/*.html` and outputs the facts checklist |
 | **`gtm-deployment-guide.md`** | Comprehensive step-by-step for GTM deployment + Search Console indexing |
 | **`seo-yhteenveto-suomeksi.docx`** | Finnish executive summary for non-tech readers |
 | **`seo-jatkotehtavat-suomeksi.docx`** | Finnish SEO development roadmap for the next 6–24 months (post-schema work) |
 | **`_build_docx.js`** | Node script that builds the Finnish executive summary Word document |
 | **`_build_jatkotehtavat_docx.js`** | Node script that builds the Finnish SEO roadmap Word document |
+| **`_build_gtm_container.js`** | Node script that builds a GTM Import Container JSON from `tags/*.html` for bulk-deploying all 26 tags, 24 triggers, and 12 variables in one operation |
+| `gtm-container-import.json` | Generated GTM container import file (regenerable via `_build_gtm_container.js`). Import via GTM → Admin → Container Settings → Import Container with "Merge" option |
 | `kolmekampusta-gtm-schema.md` | Original master plan (frozen, historical) |
 | `kolmekampusta-gtm-schema-refined.md` | Audit + refinement record (historical) |
 

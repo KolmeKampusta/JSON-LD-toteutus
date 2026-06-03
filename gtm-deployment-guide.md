@@ -15,7 +15,7 @@ End-to-end deployment of the schema.org tags to the live GTM container `GTM-WD3C
 - Two browser windows: one private (for clean live verification), one regular (for GTM Preview)
 - Files in place locally:
   - `gtm-tags-production.md` (master)
-  - `tags/` folder (25 per-tag files)
+  - `tags/` folder (26 per-tag files)
   - `scripts/` folder (open-rrt.py, open-validator.py, README.md)
 
 ---
@@ -82,8 +82,8 @@ For tags showing "no items detected", that's NORMAL — those types are valid sc
 1. Go to [tagmanager.google.com](https://tagmanager.google.com/)
 2. Select container `GTM-WD3C92NG`
 3. Top right → **Workspace switcher** → click **+ New Workspace**
-4. Name: `Schema.org full rollout v1.0`
-5. Description: `25 schema.org tags + 23 triggers + 1 JS variable + 11 constants`
+4. Name: `Schema.org full rollout v1.1`
+5. Description: `26 schema.org tags + 24 triggers + 1 JS variable + 11 constants (includes JobPosting)`
 6. **Create**
 
 Working in a fresh workspace lets you build the entire set without affecting the live container until you publish.
@@ -130,7 +130,7 @@ For each row below: **Variables → User-Defined → New** → **Constant** → 
 
 The current tag bodies hardcode values, so these constants are documentation only. Skip if you want to move faster — you can add them later.
 
-## Step B4 — Create 23 GTM Triggers (15 min)
+## Step B4 — Create 24 GTM Triggers (15 min)
 
 GTM → left sidebar → **Triggers** → for each row: **New** → set name and type and condition → **Save**.
 
@@ -142,7 +142,7 @@ GTM → left sidebar → **Triggers** → for each row: **New** → set name and
 | `All Pages — DOM Ready` | **DOM Ready** | All DOM Ready Events (default) |
 | `All Pages — Window Loaded` | **Window Loaded** | All Window Loaded Events (default) |
 
-### 20 URL-anchored triggers
+### 20 URL-anchored Page View triggers
 
 All are **Page View** type with **Some Page Views** → `Page Path` `matches RegEx` → paste the regex below.
 
@@ -169,9 +169,19 @@ All are **Page View** type with **Some Page Views** → `Page Path` `matches Reg
 | `Continuing Education` | `/koulutus/koulutukset/taydennyskoulutus$` |
 | `Liberal Adult Education` | `/koulutus/koulutukset/vapaan-sivistystyon-koulutus$` |
 
-After creating: verify **23 total triggers** in the Triggers list.
+### 1 URL-anchored DOM Ready trigger
 
-## Step B5 — Create 25 Tags (45–60 min)
+This trigger is **DOM Ready** (not Page View), because Tag 24 needs the DOM populated to read job details from it.
+
+| Name | Type | Conditions |
+|---|---|---|
+| `Avoimet työpaikat (per-job)` | **DOM Ready** | Some DOM Ready Events → `Page Path` `matches RegEx` → `^/fi/meista/avoimet-tyopaikat/[^/]+/?$` |
+
+The regex matches `/fi/meista/avoimet-tyopaikat/{anything}` but NOT the index page `/fi/meista/avoimet-tyopaikat`.
+
+After creating: verify **24 total triggers** in the Triggers list.
+
+## Step B5 — Create 26 Tags (50–65 min)
 
 For each tag below:
 
@@ -210,6 +220,7 @@ For each tag below:
 | 21 | `Schema — Tag 21 — Apprenticeship` | `tags/tag-21-apprenticeship.html` | `Apprenticeship` |
 | 22 | `Schema — Tag 22 — Continuing Education` | `tags/tag-22-continuing-education.html` | `Continuing Education` |
 | 23 | `Schema — Tag 23 — Liberal Adult Education` | `tags/tag-23-liberal-adult-education.html` | `Liberal Adult Education` |
+| 24 | `Schema — Tag 24 — JobPosting` | `tags/tag-24-jobposting.html` | `Avoimet työpaikat (per-job)` |
 
 Tip: GTM has a **Save and continue** shortcut, but if it doesn't appear, just **Save** then **Tags → New** for the next one.
 
@@ -217,8 +228,8 @@ Tip: GTM has a **Save and continue** shortcut, but if it doesn't appear, just **
 
 In GTM workspace, verify:
 - **Variables → User-Defined**: 1 Custom JavaScript + 11 Constants = 12 total (or just 1 if you skipped constants)
-- **Triggers**: 23 total
-- **Tags**: 25 total — all named `Schema — Tag X — Name`, all set to Custom HTML, all with consent "No additional consent required"
+- **Triggers**: 24 total
+- **Tags**: 26 total — all named `Schema — Tag X — Name`, all set to Custom HTML, all with consent "No additional consent required"
 
 ---
 
@@ -230,7 +241,7 @@ GTM workspace → top right → **Preview** button (blue). Tag Assistant tab ope
 
 In Tag Assistant: enter `https://www.kolmekampusta.fi/fi` → click **Connect**. A new browser tab opens with the live homepage in debug mode.
 
-## Step C2 — Test 13 representative URLs
+## Step C2 — Test 14 representative URLs
 
 For each URL below:
 
@@ -256,6 +267,9 @@ For each URL below:
 | 11 | `https://www.kolmekampusta.fi/fi/meista/yhteystiedot` | 1, 2, 6, 7 (ContactPage), 8 |
 | 12 | `https://www.kolmekampusta.fi/fi/ravintolapalvelut` | 1, 2, 6, 19, 8 |
 | 13 | `https://www.kolmekampusta.fi/fi/vapaa-aika/aktiviteetit/lakepoolpajulahti` | 1, 2, 6, 7 (TouristAttraction), 9, 8 |
+| 14 | `https://www.kolmekampusta.fi/fi/meista/avoimet-tyopaikat/{any-open-job-slug}` | 1, 2, 6, 8, 24 (JobPosting) — only fires when an actual job page is open; substitute current job slug |
+
+**Important for Tag 24:** Also test the index page `https://www.kolmekampusta.fi/fi/meista/avoimet-tyopaikat` and confirm Tag 24 does **NOT** fire there (only on per-job sub-pages).
 
 ## Step C3 — Browser DevTools verification
 
@@ -282,7 +296,7 @@ If a tag didn't fire when expected, check:
 
 If a tag fired but emitted broken JSON, re-paste the tag body from the local file.
 
-When all 13 URLs test cleanly, proceed.
+When all 14 URLs test cleanly, proceed.
 
 ---
 
@@ -296,10 +310,10 @@ Click the **×** on the orange "Preview" indicator in the GTM workspace toolbar,
 
 1. GTM workspace → top right → **Submit** button (blue)
 2. **Submission Configuration** screen:
-   - **Version Name**: `v1.0 — Complete schema.org coverage (25 tags)`
+   - **Version Name**: `v1.1 — Complete schema.org coverage (26 tags, includes JobPosting)`
    - **Version Description** (multiline OK):
      ```
-     Adds Organization, WebSite, 3 campus + 2 accommodation, 11 facility, 3-restaurant @graph, 4 education program schemas. Plus dynamic image dispatching via og:image variable. All compliant with audit findings.
+     Adds Organization, WebSite, 3 campus + 2 accommodation, 11 facility, 3-restaurant @graph, 4 education program, and JobPosting auto-extract (Google for Jobs). Plus dynamic image dispatching via og:image variable. All compliant with audit findings.
      ```
    - Leave "Environment to publish to" as **Live** (default)
 3. **Publish**
@@ -465,7 +479,7 @@ Wait 24 hours and resume from where you left off. Google's quota resets daily.
 If something breaks live and you need to revert immediately:
 
 1. GTM → top → **Versions** tab
-2. Find the previous version (the one before your `v1.0 — Complete schema.org coverage`)
+2. Find the previous version (the one before your `v1.1 — Complete schema.org coverage (26 tags, includes JobPosting)`)
 3. Right side → **⋮ More** → **Publish to environment** → **Live**
 4. Confirm
 

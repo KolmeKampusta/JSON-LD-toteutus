@@ -1,6 +1,6 @@
 # GTM tag bodies — per-tag files
 
-This folder contains all 25 schema.org tags as individual files. Each file holds the complete content (including the `<script>` wrapper) that goes into a GTM Custom HTML tag.
+This folder contains all 26 schema.org tags as individual files. Each file holds the complete content (including the `<script>` wrapper) that goes into a GTM Custom HTML tag.
 
 ## File map
 
@@ -31,6 +31,7 @@ This folder contains all 25 schema.org tags as individual files. Each file holds
 | `tag-21-apprenticeship.html` | Tag 21 — Apprenticeship | static JSON-LD | S — Apprenticeship |
 | `tag-22-continuing-education.html` | Tag 22 — Continuing Education | static JSON-LD | T — Continuing Education |
 | `tag-23-liberal-adult-education.html` | Tag 23 — Liberal Adult Education | static JSON-LD | U — Liberal Adult Education |
+| `tag-24-jobposting.html` | Tag 24 — JobPosting auto-extract | **dynamic JS** | V — Avoimet työpaikat (per-job) |
 
 ## How to use
 
@@ -50,12 +51,13 @@ Open [validator.schema.org](https://validator.schema.org/) → **Code Snippet** 
 ### To test in Rich Results Test
 Open [search.google.com/test/rich-results](https://search.google.com/test/rich-results) → **Code** tab → paste the file content. Same caveat: works for static JSON-LD tags only.
 
-### How to test the dynamic dispatchers (Tags 6, 7, 8)
+### How to test the dynamic dispatchers (Tags 6, 7, 8, 24)
 Static validators can't test JS dispatchers because the schema is generated at runtime. Use GTM Preview Mode on representative URLs:
 
 - Tag 6: test on `/fi`, `/fi/artikkelit/*`, `/fi/uutiset/*`, `/fi/blogi/*`, `/fi/tapahtumat/*`
 - Tag 7: test on `/fi/meista/yhteystiedot`, `/fi/meista/*`, `/fi/ryhmat-ja-leirit/*`, `/fi/vapaa-aika/aktiviteetit/*`, `/fi/yritykset/*`
 - Tag 8: test on any page — check browser Console for `[Schema.org]` group
+- Tag 24: test on `/fi/meista/avoimet-tyopaikat/{any-open-job-slug}` — must NOT fire on the index page `/fi/meista/avoimet-tyopaikat`
 
 ## Source of truth
 
@@ -83,5 +85,6 @@ A typical page on kolmekampusta.fi will have multiple tags firing simultaneously
 | Contact `/fi/meista/yhteystiedot` | 1, 2, 6, 7 (ContactPage), 8 |
 | About `/fi/meista/*` | 1, 2, 6, 7 (AboutPage), 8 |
 | Education program (e.g. ammatillinen-koulutus) | 1, 2, 6, 20, 8 |
+| Open job page `/fi/meista/avoimet-tyopaikat/{slug}` | 1, 2, 6, 8, 24 |
 
 The existing Drupal Metatag `BreadcrumbList` JSON-LD continues to be emitted server-side on every content node page — it's preserved untouched by this plan.

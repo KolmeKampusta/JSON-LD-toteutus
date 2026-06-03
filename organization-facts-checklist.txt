@@ -1,0 +1,2045 @@
+======================================================================
+ORGANIZATION FACTS — CHECK LIST
+======================================================================
+
+Generated from tags/*.html — review each line for accuracy.
+
+Marking conventions:
+  [ ] = unchecked
+  [X] = verified correct
+  [!] = found error — write the correction next to it
+
+Dynamic JS tags (6, 7, 8, 24): the data is read from the live page
+DOM at runtime — no hardcoded facts to verify here. Test those
+tags on the live site via browser DevTools instead.
+
+When you find an error: tell Jussi which tag and which field, with
+the correct value. Both gtm-tags-production.md and the matching
+file in /tags/ will be updated together.
+
+
+======================================================================
+tag-01-organization.html
+======================================================================
+
+@type: ["SportsOrganization","EducationalOrganization","Organization"]
+@id: https://www.kolmekampusta.fi/#organization
+[ ] @type (3 items):
+    - SportsOrganization
+    - EducationalOrganization
+    - Organization
+[ ] @id: https://www.kolmekampusta.fi/#organization
+[ ] name: Kolmen kampuksen urheiluopisto
+[ ] legalName: Kolmen kampuksen urheiluopisto Oy
+[ ] alternateName (2 items):
+    - Kolme kampusta
+    - Sports Institute of Three Campuses
+[ ] url: https://www.kolmekampusta.fi/
+logo:
+  [ ] @type: ImageObject
+  [ ] url: https://www.kolmekampusta.fi/themes/custom/druidxp_demo_olivero/logo.svg
+  [ ] width: 600
+  [ ] height: 60
+[ ] image: https://www.kolmekampusta.fi/sites/default/files/2025-06/pajulahti_ilmakuva_ns_web_0869.jpg
+[ ] taxID: 3250102-9
+[ ] vatID: FI32501029
+[ ] foundingDate: 2021
+[ ] description: Kolmen kampuksen urheiluopisto on virallinen koulutusorganisaatio, joka tarjoaa ammatillista koulutusta, vapaan sivistystyön koulutusta ja täydennyskoulutusta sekä monipuolisia urheilun, liikunnan ja vapaa-ajan palveluita Lahdessa, Lohjalla ja Helsingissä.
+areaServed:
+  [ ] @type: Country
+  [ ] name: Finland
+[ ] knowsLanguage (2 items):
+    - fi
+    - en
+[ ] sport (90 items):
+    - Alpine Skiing
+    - American Football
+    - Archery
+    - Athletics
+    - Badminton
+    - Basketball
+    - Beach Volleyball
+    - Biathlon
+    - Boccia
+    - Boxing
+    - Brazilian Jiu-Jitsu
+    - Canoeing
+    - Cheerleading
+    - Climbing
+    - Combat Sports
+    - Cross-Country Skiing
+    - CrossFit
+    - Curling
+    - Cycling
+    - Dance
+    - Disc Golf
+    - Diving
+    - Electric Wheelchair Floorball
+    - Endurance Sports
+    - Esports
+    - Figure Skating
+    - Floorball
+    - Football
+    - Goalball
+    - Golf
+    - Gymnastics
+    - Handball
+    - Hiking
+    - Hokutoryu Jujutsu
+    - Ice Hockey
+    - Ice Skating
+    - Ice Swimming
+    - Judo
+    - Karate
+    - Kayaking
+    - Kickboxing
+    - Kin-Ball
+    - Lacrosse
+    - Lifesaving
+    - Mixed Martial Arts
+    - Mountain Biking
+    - Muay Thai
+    - Nordic Combined
+    - Orienteering
+    - Padel
+    - Para Athletics
+    - Para Cycling
+    - Para Sports
+    - Para Swimming
+    - Pesäpallo
+    - Pickleball
+    - Powerchair Football
+    - Powerlifting
+    - Racket Sports
+    - Rhythmic Gymnastics
+    - Ringette
+    - Rowing
+    - Running
+    - Sailing
+    - Sitting Volleyball
+    - Ski Jumping
+    - Skiing
+    - Snowshoeing
+    - Speed Skating
+    - Squash
+    - Stand Up Paddleboarding
+    - Swimming
+    - Synchronised Skating
+    - Table Tennis
+    - Taekwondo
+    - Taido
+    - Tennis
+    - Trail Running
+    - Trampolining
+    - Triathlon
+    - Ultimate Frisbee
+    - Underwater Rugby
+    - Volleyball
+    - Water Cycling
+    - Water Polo
+    - Weight Training
+    - Wheelchair Basketball
+    - Wheelchair Rugby
+    - Wheelchair Tennis
+    - Wrestling
+location (3 items):
+  --- item 1 https://www.kolmekampusta.fi/pajulahti#location ---
+  [ ] @id: https://www.kolmekampusta.fi/pajulahti#location
+  --- item 2 https://www.kolmekampusta.fi/kisakallio#location ---
+  [ ] @id: https://www.kolmekampusta.fi/kisakallio#location
+  --- item 3 https://www.kolmekampusta.fi/makelanrinne#location ---
+  [ ] @id: https://www.kolmekampusta.fi/makelanrinne#location
+[ ] sameAs (4 items):
+    - https://www.facebook.com/kolmekampusta
+    - https://www.instagram.com/kolmekampusta
+    - https://www.linkedin.com/company/18559086
+    - https://kauppa.kolmekampusta.fi/
+contactPoint (3 items):
+  --- item 1 (ContactPoint) ---
+  [ ] @type: ContactPoint
+  [ ] telephone: +358-19-31511
+  [ ] contactType: reservations
+  [ ] areaServed: FI
+  [ ] availableLanguage (2 items):
+      - Finnish
+      - English
+  [ ] email: kisakallio@kolmekampusta.fi
+  hoursAvailable:
+    [ ] @type: OpeningHoursSpecification
+    [ ] dayOfWeek (7 items):
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        - Sunday
+    [ ] opens: 00:00
+    [ ] closes: 23:59
+  --- item 2 (ContactPoint) ---
+  [ ] @type: ContactPoint
+  [ ] telephone: +358-44-7755-313
+  [ ] contactType: reservations
+  [ ] areaServed: FI
+  [ ] availableLanguage (2 items):
+      - Finnish
+      - English
+  [ ] email: pajulahti@kolmekampusta.fi
+  hoursAvailable:
+    [ ] @type: OpeningHoursSpecification
+    [ ] dayOfWeek (7 items):
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        - Sunday
+    [ ] opens: 00:00
+    [ ] closes: 23:59
+  --- item 3 (ContactPoint) ---
+  [ ] @type: ContactPoint
+  [ ] telephone: +358-44-7755-777
+  [ ] contactType: sales
+  [ ] areaServed: FI
+  [ ] availableLanguage (2 items):
+      - Finnish
+      - English
+  hoursAvailable:
+    [ ] @type: OpeningHoursSpecification
+    [ ] dayOfWeek (5 items):
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+    [ ] opens: 09:00
+    [ ] closes: 16:00
+
+======================================================================
+tag-02-website.html
+======================================================================
+
+@type: "WebSite"
+@id: https://www.kolmekampusta.fi/#website
+[ ] @type: WebSite
+[ ] @id: https://www.kolmekampusta.fi/#website
+[ ] url: https://www.kolmekampusta.fi/
+[ ] name: Kolmen kampuksen urheiluopisto
+[ ] alternateName (2 items):
+    - Kolme kampusta
+    - Sports Institute of Three Campuses
+[ ] description: Kolmen kampuksen urheiluopisto — Pajulahti, Kisakallio, Mäkelänrinne.
+[ ] publisher → https://www.kolmekampusta.fi/#organization
+[ ] inLanguage (2 items):
+    - fi
+    - en
+potentialAction (1 items):
+  --- item 1 (SearchAction) ---
+  [ ] @type: SearchAction
+  target:
+    [ ] @type: EntryPoint
+    [ ] urlTemplate: https://www.kolmekampusta.fi/fi/search?s={search_term_string}
+  [ ] query-input: required name=search_term_string
+
+======================================================================
+tag-03-pajulahti-campus.html
+======================================================================
+
+--- @graph entity 1: ["SportsActivityLocation","LodgingBusiness"] ---
+@id: https://www.kolmekampusta.fi/pajulahti#location
+[ ] @type (2 items):
+    - SportsActivityLocation
+    - LodgingBusiness
+[ ] @id: https://www.kolmekampusta.fi/pajulahti#location
+[ ] name: Pajulahti — Kolmen kampuksen urheiluopisto
+[ ] alternateName: Pajulahden kampus
+[ ] url: https://www.kolmekampusta.fi/fi/pajulahden-kampus
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Pajulahti on monipuolinen urheilun, koulutuksen ja hyvinvoinnin keskus. Suomen ainoa olympiakomitean ja paralympiakomitean virallinen valmennuskeskus sekä virallinen koulutusorganisaatio, joka tarjoaa ammatillista, vapaan sivistystyön ja täydennyskoulutusta.
+[ ] telephone: +358-44-7755-313
+[ ] email: pajulahti@kolmekampusta.fi
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+geo:
+  [ ] @type: GeoCoordinates
+  [ ] latitude: 60.969189
+  [ ] longitude: 25.943861
+openingHoursSpecification (1 items):
+  --- item 1 (OpeningHoursSpecification) ---
+  [ ] @type: OpeningHoursSpecification
+  [ ] dayOfWeek (7 items):
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+      - Sunday
+  [ ] opens: 00:00
+  [ ] closes: 23:59
+  [ ] description: Reception is open 24h
+amenityFeature (35 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Olympic Training Center
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Paralympic Training Center
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Pajulahti-halli (multi-sport hall)
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Indoor athletics track
+  [ ] value: true
+  --- item 5 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Outdoor athletics track
+  [ ] value: true
+  --- item 6 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Football fields (artificial turf)
+  [ ] value: true
+  --- item 7 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Football fields (natural grass)
+  [ ] value: true
+  --- item 8 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: American football field
+  [ ] value: true
+  --- item 9 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Beach volleyball courts
+  [ ] value: true
+  --- item 10 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Basketball courts (indoor)
+  [ ] value: true
+  --- item 11 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Volleyball courts (indoor)
+  [ ] value: true
+  --- item 12 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Handball courts
+  [ ] value: true
+  --- item 13 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Tennis courts
+  [ ] value: true
+  --- item 14 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Badminton courts
+  [ ] value: true
+  --- item 15 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Combat sports hall (judo, karate, boxing)
+  [ ] value: true
+  --- item 16 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Wrestling mats
+  [ ] value: true
+  --- item 17 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Weight training facilities
+  [ ] value: true
+  --- item 18 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Gymnasium
+  [ ] value: true
+  --- item 19 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Recovery center (cryotherapy, massage)
+  [ ] value: true
+  --- item 20 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: TAITO 360 motor skills area
+  [ ] value: true
+  --- item 21 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: High-altitude training chamber
+  [ ] value: true
+  --- item 22 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Sports performance testing lab
+  [ ] value: true
+  --- item 23 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Cross-country ski tracks
+  [ ] value: true
+  --- item 24 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Disc golf course
+  [ ] value: true
+  --- item 25 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Adventure Park (Seikkailupuisto)
+  [ ] value: true
+  --- item 26 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Lake Pool Pajulahti
+  [ ] value: true
+  --- item 27 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Public swimming hall
+  [ ] value: true
+  --- item 28 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Sauna and lakeside swimming
+  [ ] value: true
+  --- item 29 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Restaurant Iso-Kukkanen
+  [ ] value: true
+  --- item 30 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Café Keihäs
+  [ ] value: true
+  --- item 31 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Equipment and field rental
+  [ ] value: true
+  --- item 32 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Accessible facilities
+  [ ] value: true
+  --- item 33 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Free WiFi
+  [ ] value: true
+  --- item 34 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Free parking
+  [ ] value: true
+  --- item 35 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: 24-hour reception
+  [ ] value: true
+containsPlace (10 items):
+  --- item 1 https://www.kolmekampusta.fi/majoitus/pajulahti#lodging ---
+  [ ] @id: https://www.kolmekampusta.fi/majoitus/pajulahti#lodging
+  --- item 2 https://www.kolmekampusta.fi/lakepool#facility ---
+  [ ] @id: https://www.kolmekampusta.fi/lakepool#facility
+  --- item 3 https://www.kolmekampusta.fi/seikkailupuisto#facility ---
+  [ ] @id: https://www.kolmekampusta.fi/seikkailupuisto#facility
+  --- item 4 https://www.kolmekampusta.fi/uimahalli#facility ---
+  [ ] @id: https://www.kolmekampusta.fi/uimahalli#facility
+  --- item 5 https://www.kolmekampusta.fi/taito360#facility ---
+  [ ] @id: https://www.kolmekampusta.fi/taito360#facility
+  --- item 6 https://www.kolmekampusta.fi/recoverycenter#facility ---
+  [ ] @id: https://www.kolmekampusta.fi/recoverycenter#facility
+  --- item 7 https://www.kolmekampusta.fi/altitude#facility ---
+  [ ] @id: https://www.kolmekampusta.fi/altitude#facility
+  --- item 8 https://www.kolmekampusta.fi/testing#facility ---
+  [ ] @id: https://www.kolmekampusta.fi/testing#facility
+  --- item 9 https://www.kolmekampusta.fi/restaurants/iso-kukkanen#restaurant ---
+  [ ] @id: https://www.kolmekampusta.fi/restaurants/iso-kukkanen#restaurant
+  --- item 10 https://www.kolmekampusta.fi/restaurants/keihas#cafe ---
+  [ ] @id: https://www.kolmekampusta.fi/restaurants/keihas#cafe
+[ ] sport (82 items):
+    - American Football
+    - Archery
+    - Athletics
+    - Badminton
+    - Basketball
+    - Beach Volleyball
+    - Boccia
+    - Boxing
+    - Brazilian Jiu-Jitsu
+    - Canoeing
+    - Cheerleading
+    - Climbing
+    - Combat Sports
+    - Cross-Country Skiing
+    - CrossFit
+    - Cycling
+    - Dance
+    - Disc Golf
+    - Electric Wheelchair Floorball
+    - Endurance Sports
+    - Figure Skating
+    - Floorball
+    - Football
+    - Goalball
+    - Gymnastics
+    - Handball
+    - Hiking
+    - Hokutoryu Jujutsu
+    - Ice Hockey
+    - Ice Skating
+    - Ice Swimming
+    - Judo
+    - Karate
+    - Kayaking
+    - Kickboxing
+    - Lacrosse
+    - Lifesaving
+    - Mixed Martial Arts
+    - Mountain Biking
+    - Muay Thai
+    - Nordic Combined
+    - Orienteering
+    - Padel
+    - Para Athletics
+    - Para Cycling
+    - Para Sports
+    - Para Swimming
+    - Pesäpallo
+    - Pickleball
+    - Powerchair Football
+    - Powerlifting
+    - Racket Sports
+    - Rhythmic Gymnastics
+    - Ringette
+    - Rowing
+    - Running
+    - Sailing
+    - Sitting Volleyball
+    - Ski Jumping
+    - Skiing
+    - Snowshoeing
+    - Squash
+    - Stand Up Paddleboarding
+    - Swimming
+    - Synchronised Skating
+    - Table Tennis
+    - Taekwondo
+    - Taido
+    - Tennis
+    - Trail Running
+    - Trampolining
+    - Triathlon
+    - Ultimate Frisbee
+    - Underwater Rugby
+    - Volleyball
+    - Water Cycling
+    - Water Polo
+    - Weight Training
+    - Wheelchair Basketball
+    - Wheelchair Rugby
+    - Wheelchair Tennis
+    - Wrestling
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+containedInPlace:
+  [ ] @type: AdministrativeArea
+  [ ] name: Lahti, Finland
+[ ] priceRange: €€
+[ ] currenciesAccepted: EUR
+[ ] paymentAccepted (6 items):
+    - Cash
+    - Credit Card
+    - Debit Card
+    - Bank Transfer
+    - Invoice
+    - ePassi
+[ ] sameAs (3 items):
+    - https://www.facebook.com/pajulahti1929
+    - https://www.instagram.com/pajulahti1929/
+    - https://www.youtube.com/@Pajulahti1929
+
+--- @graph entity 2: "EducationalOrganization" ---
+@id: https://www.kolmekampusta.fi/pajulahti#educationalOrganization
+[ ] @type: EducationalOrganization
+[ ] @id: https://www.kolmekampusta.fi/pajulahti#educationalOrganization
+[ ] name: Pajulahti — Kolmen kampuksen urheiluopisto (koulutusorganisaatio)
+[ ] alternateName: Pajulahden koulutus
+[ ] url: https://www.kolmekampusta.fi/fi/pajulahden-kampus
+[ ] description: Pajulahden kampus toimii virallisena koulutusorganisaationa, joka tarjoaa ammatillista, vapaan sivistystyön ja täydennyskoulutusta liikunta-alalla.
+[ ] location → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-03a-pajulahti-accommodation.html
+======================================================================
+
+@type: ["Resort","Hotel"]
+@id: https://www.kolmekampusta.fi/majoitus/pajulahti#lodging
+[ ] @type (2 items):
+    - Resort
+    - Hotel
+[ ] @id: https://www.kolmekampusta.fi/majoitus/pajulahti#lodging
+[ ] name: Pajulahti — Majoitus
+[ ] alternateName (2 items):
+    - Pajulahti Hotel
+    - Pajulahden majoitus
+[ ] url: https://www.kolmekampusta.fi/fi/majoitus/pajulahti
+[ ] description: Pajulahden monipuolinen majoitustarjonta: hotelli, akatemia ja modernit villat järven rannalla. Olympic and Paralympic Training Center. Täyden palvelun urheilu- ja vapaa-ajankeskus Lahdessa.
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] telephone: +358-44-7755-313
+[ ] email: pajulahti@kolmekampusta.fi
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+geo:
+  [ ] @type: GeoCoordinates
+  [ ] latitude: 60.969189
+  [ ] longitude: 25.943861
+[ ] hasMap: https://www.google.com/maps/place/Pajulahdentie+167,+15560+Lahti
+[ ] priceRange: €€
+[ ] currenciesAccepted: EUR
+[ ] paymentAccepted (6 items):
+    - Cash
+    - Credit Card
+    - Debit Card
+    - Bank Transfer
+    - Invoice
+    - ePassi
+[ ] checkinTime: 15:00
+[ ] checkoutTime: 12:00
+[ ] petsAllowed: true
+[ ] smokingAllowed: false
+[ ] isAccessibleForFree: false
+[ ] publicAccess: true
+numberOfRooms:
+  [ ] @type: QuantitativeValue
+  [ ] value: 136
+  [ ] unitText: rooms
+contactPoint:
+  [ ] @type: ContactPoint
+  [ ] telephone: +358-44-7755-313
+  [ ] email: pajulahti@kolmekampusta.fi
+  [ ] contactType: reservations
+  [ ] availableLanguage (2 items):
+      - Finnish
+      - English
+amenityFeature (16 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Free WiFi
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Free parking
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Breakfast
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Restaurant on site
+  [ ] value: true
+  --- item 5 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Bar / lounge
+  [ ] value: true
+  --- item 6 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Swimming pool
+  [ ] value: true
+  --- item 7 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Sauna
+  [ ] value: true
+  --- item 8 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Fitness center / gym
+  [ ] value: true
+  --- item 9 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Conference facilities
+  [ ] value: true
+  --- item 10 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Accessible rooms
+  [ ] value: true
+  --- item 11 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Family rooms
+  [ ] value: true
+  --- item 12 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Villas for groups
+  [ ] value: true
+  --- item 13 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Adventure park access
+  [ ] value: true
+  --- item 14 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: 24-hour reception
+  [ ] value: true
+  --- item 15 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Lakeside location
+  [ ] value: true
+  --- item 16 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Sports facilities access
+  [ ] value: true
+potentialAction:
+  [ ] @type: ReserveAction
+  [ ] name: Varaa majoitus Pajulahdesta
+  target:
+    [ ] @type: EntryPoint
+    [ ] urlTemplate: https://kolmekampusta.willba.store/en?locationId=1
+    [ ] inLanguage (2 items):
+        - fi
+        - en
+    [ ] actionPlatform (4 items):
+        - https://schema.org/DesktopWebPlatform
+        - https://schema.org/MobileWebPlatform
+        - https://schema.org/IOSPlatform
+        - https://schema.org/AndroidPlatform
+  result:
+    [ ] @type: LodgingReservation
+    [ ] name: Majoitusvaraus Pajulahteen
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+[ ] brand → https://www.kolmekampusta.fi/#organization
+[ ] sameAs (3 items):
+    - https://www.facebook.com/pajulahti1929
+    - https://www.instagram.com/pajulahti1929/
+    - https://www.youtube.com/@Pajulahti1929
+
+======================================================================
+tag-04-kisakallio-campus.html
+======================================================================
+
+--- @graph entity 1: ["SportsActivityLocation","LodgingBusiness"] ---
+@id: https://www.kolmekampusta.fi/kisakallio#location
+[ ] @type (2 items):
+    - SportsActivityLocation
+    - LodgingBusiness
+[ ] @id: https://www.kolmekampusta.fi/kisakallio#location
+[ ] name: Kisakallio — Kolmen kampuksen urheiluopisto
+[ ] alternateName: Kisakallion kampus
+[ ] url: https://www.kolmekampusta.fi/fi/kisakallion-kampus
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Kisakallio jakaa liikunta-alan osaamista koulutusten ja valmennusten myötä. Virallinen koulutusorganisaatio, joka tarjoaa ammatillista, vapaan sivistystyön ja täydennyskoulutusta. Karnaistenkorven ja Lohjanjärven syleilyssä.
+[ ] telephone: +358-19-31511
+[ ] email: kisakallio@kolmekampusta.fi
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Kaarina Karin tie 4
+  [ ] addressLocality: Lohja
+  [ ] addressRegion: Uusimaa
+  [ ] postalCode: 08360
+  [ ] addressCountry: FI
+geo:
+  [ ] @type: GeoCoordinates
+  [ ] latitude: 60.321419
+  [ ] longitude: 24.042815
+openingHoursSpecification (1 items):
+  --- item 1 (OpeningHoursSpecification) ---
+  [ ] @type: OpeningHoursSpecification
+  [ ] dayOfWeek (7 items):
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+      - Sunday
+  [ ] opens: 00:00
+  [ ] closes: 23:59
+  [ ] description: Reception is open 24h
+amenityFeature (27 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Multi-sport halls
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Gymnastics hall
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Cheerleading facilities
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Combat sports hall
+  [ ] value: true
+  --- item 5 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Tennis courts
+  [ ] value: true
+  --- item 6 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Badminton courts
+  [ ] value: true
+  --- item 7 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Racket sports courts
+  [ ] value: true
+  --- item 8 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Football fields
+  [ ] value: true
+  --- item 9 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Basketball courts
+  [ ] value: true
+  --- item 10 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Volleyball courts
+  [ ] value: true
+  --- item 11 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Beach volleyball court
+  [ ] value: true
+  --- item 12 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Floorball / handball hall
+  [ ] value: true
+  --- item 13 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Weight training facilities
+  [ ] value: true
+  --- item 14 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Orienteering terrain (Karnaistenkorpi)
+  [ ] value: true
+  --- item 15 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Cross-country ski tracks
+  [ ] value: true
+  --- item 16 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Disc golf course
+  [ ] value: true
+  --- item 17 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Beach sauna (Rantasauna)
+  [ ] value: true
+  --- item 18 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Lakeside swimming (Lohjanjärvi)
+  [ ] value: true
+  --- item 19 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Sporttipassi (sports pass)
+  [ ] value: true
+  --- item 20 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Conference and seminar facilities
+  [ ] value: true
+  --- item 21 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Villas for small groups
+  [ ] value: true
+  --- item 22 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Villamaailma (corporate villas)
+  [ ] value: true
+  --- item 23 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Restaurant Rantamakasiini
+  [ ] value: true
+  --- item 24 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Accessible facilities
+  [ ] value: true
+  --- item 25 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Free WiFi
+  [ ] value: true
+  --- item 26 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Free parking
+  [ ] value: true
+  --- item 27 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: 24-hour reception
+  [ ] value: true
+containsPlace (4 items):
+  --- item 1 https://www.kolmekampusta.fi/majoitus/kisakallio#lodging ---
+  [ ] @id: https://www.kolmekampusta.fi/majoitus/kisakallio#lodging
+  --- item 2 https://www.kolmekampusta.fi/sporttipassi#facility ---
+  [ ] @id: https://www.kolmekampusta.fi/sporttipassi#facility
+  --- item 3 https://www.kolmekampusta.fi/kisakallio-sauna#facility ---
+  [ ] @id: https://www.kolmekampusta.fi/kisakallio-sauna#facility
+  --- item 4 https://www.kolmekampusta.fi/restaurants/rantamakasiini#restaurant ---
+  [ ] @id: https://www.kolmekampusta.fi/restaurants/rantamakasiini#restaurant
+[ ] sport (84 items):
+    - Alpine Skiing
+    - American Football
+    - Archery
+    - Athletics
+    - Badminton
+    - Basketball
+    - Beach Volleyball
+    - Biathlon
+    - Boccia
+    - Boxing
+    - Brazilian Jiu-Jitsu
+    - Canoeing
+    - Cheerleading
+    - Climbing
+    - Combat Sports
+    - Cross-Country Skiing
+    - CrossFit
+    - Curling
+    - Cycling
+    - Dance
+    - Disc Golf
+    - Electric Wheelchair Floorball
+    - Endurance Sports
+    - Figure Skating
+    - Floorball
+    - Football
+    - Goalball
+    - Gymnastics
+    - Handball
+    - Hiking
+    - Hokutoryu Jujutsu
+    - Ice Hockey
+    - Ice Skating
+    - Ice Swimming
+    - Judo
+    - Karate
+    - Kayaking
+    - Kickboxing
+    - Kin-Ball
+    - Lacrosse
+    - Lifesaving
+    - Mixed Martial Arts
+    - Mountain Biking
+    - Muay Thai
+    - Nordic Combined
+    - Orienteering
+    - Padel
+    - Para Athletics
+    - Para Cycling
+    - Para Sports
+    - Pesäpallo
+    - Pickleball
+    - Powerchair Football
+    - Powerlifting
+    - Racket Sports
+    - Rhythmic Gymnastics
+    - Ringette
+    - Rowing
+    - Running
+    - Sailing
+    - Sitting Volleyball
+    - Ski Jumping
+    - Skiing
+    - Snowshoeing
+    - Squash
+    - Stand Up Paddleboarding
+    - Synchronised Skating
+    - Table Tennis
+    - Taekwondo
+    - Taido
+    - Tennis
+    - Trail Running
+    - Trampolining
+    - Triathlon
+    - Ultimate Frisbee
+    - Underwater Rugby
+    - Volleyball
+    - Water Cycling
+    - Water Polo
+    - Weight Training
+    - Wheelchair Basketball
+    - Wheelchair Rugby
+    - Wheelchair Tennis
+    - Wrestling
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+containedInPlace:
+  [ ] @type: AdministrativeArea
+  [ ] name: Lohja, Finland
+[ ] priceRange: €€
+[ ] currenciesAccepted: EUR
+[ ] paymentAccepted (6 items):
+    - Cash
+    - Credit Card
+    - Debit Card
+    - Bank Transfer
+    - Invoice
+    - ePassi
+[ ] sameAs (3 items):
+    - https://www.facebook.com/Kisakallio/
+    - https://www.instagram.com/kisakallio/
+    - https://www.youtube.com/@kisakalliotv
+
+--- @graph entity 2: "EducationalOrganization" ---
+@id: https://www.kolmekampusta.fi/kisakallio#educationalOrganization
+[ ] @type: EducationalOrganization
+[ ] @id: https://www.kolmekampusta.fi/kisakallio#educationalOrganization
+[ ] name: Kisakallio — Kolmen kampuksen urheiluopisto (koulutusorganisaatio)
+[ ] alternateName: Kisakallion koulutus
+[ ] url: https://www.kolmekampusta.fi/fi/kisakallion-kampus
+[ ] description: Kisakallion kampus toimii virallisena koulutusorganisaationa, joka tarjoaa ammatillista, vapaan sivistystyön ja täydennyskoulutusta liikunta-alalla.
+[ ] location → https://www.kolmekampusta.fi/kisakallio#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-04a-kisakallio-accommodation.html
+======================================================================
+
+@type: ["Resort","Hotel"]
+@id: https://www.kolmekampusta.fi/majoitus/kisakallio#lodging
+[ ] @type (2 items):
+    - Resort
+    - Hotel
+[ ] @id: https://www.kolmekampusta.fi/majoitus/kisakallio#lodging
+[ ] name: Kisakallio — Majoitus
+[ ] alternateName (3 items):
+    - Kisakallio Hotel
+    - Kisakallion majoitus
+    - Villaloma Kisakalliossa
+[ ] url: https://www.kolmekampusta.fi/fi/majoitus/kisakallio
+[ ] description: Kisakallion majoitustarjonta: pienille ryhmille soveltuvat villat ja suuremmat hallitilat Lohjanjärven rannalla. Täyden palvelun urheilu- ja vapaa-ajankeskus.
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] telephone: +358-19-31511
+[ ] email: kisakallio@kolmekampusta.fi
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Kaarina Karin tie 4
+  [ ] addressLocality: Lohja
+  [ ] addressRegion: Uusimaa
+  [ ] postalCode: 08360
+  [ ] addressCountry: FI
+geo:
+  [ ] @type: GeoCoordinates
+  [ ] latitude: 60.321419
+  [ ] longitude: 24.042815
+[ ] hasMap: https://www.google.com/maps/place/Kaarina+Karin+tie+4,+08360+Lohja
+[ ] priceRange: €€
+[ ] currenciesAccepted: EUR
+[ ] paymentAccepted (6 items):
+    - Cash
+    - Credit Card
+    - Debit Card
+    - Bank Transfer
+    - Invoice
+    - ePassi
+[ ] checkinTime: 15:00
+[ ] checkoutTime: 12:00
+[ ] petsAllowed: true
+[ ] smokingAllowed: false
+[ ] isAccessibleForFree: false
+[ ] publicAccess: true
+contactPoint:
+  [ ] @type: ContactPoint
+  [ ] telephone: +358-19-31511
+  [ ] email: kisakallio@kolmekampusta.fi
+  [ ] contactType: reservations
+  [ ] availableLanguage (2 items):
+      - Finnish
+      - English
+amenityFeature (13 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Free WiFi
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Free parking
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Breakfast
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Restaurant Rantamakasiini
+  [ ] value: true
+  --- item 5 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Sauna
+  [ ] value: true
+  --- item 6 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Lakeside swimming
+  [ ] value: true
+  --- item 7 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Conference facilities
+  [ ] value: true
+  --- item 8 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Sports halls
+  [ ] value: true
+  --- item 9 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Accessible rooms
+  [ ] value: true
+  --- item 10 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Villas for groups
+  [ ] value: true
+  --- item 11 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Sporttipassi (sports pass)
+  [ ] value: true
+  --- item 12 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: 24-hour reception
+  [ ] value: true
+  --- item 13 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Lakeside location
+  [ ] value: true
+potentialAction:
+  [ ] @type: ReserveAction
+  [ ] name: Varaa majoitus Kisakalliosta
+  target:
+    [ ] @type: EntryPoint
+    [ ] urlTemplate: https://kolmekampusta.willba.store/?locationId=34
+    [ ] inLanguage (2 items):
+        - fi
+        - en
+    [ ] actionPlatform (4 items):
+        - https://schema.org/DesktopWebPlatform
+        - https://schema.org/MobileWebPlatform
+        - https://schema.org/IOSPlatform
+        - https://schema.org/AndroidPlatform
+  result:
+    [ ] @type: LodgingReservation
+    [ ] name: Majoitusvaraus Kisakallioon
+[ ] containedInPlace → https://www.kolmekampusta.fi/kisakallio#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+[ ] brand → https://www.kolmekampusta.fi/#organization
+[ ] sameAs (3 items):
+    - https://www.facebook.com/Kisakallio/
+    - https://www.instagram.com/kisakallio/
+    - https://www.youtube.com/@kisakalliotv
+
+======================================================================
+tag-05-makelanrinne.html
+======================================================================
+
+--- @graph entity 1: "SportsActivityLocation" ---
+@id: https://www.kolmekampusta.fi/makelanrinne#location
+[ ] @type: SportsActivityLocation
+[ ] @id: https://www.kolmekampusta.fi/makelanrinne#location
+[ ] name: Mäkelänrinne — Kolmen kampuksen urheiluopisto (Urhea)
+[ ] alternateName: Helsingin kampus
+[ ] url: https://www.kolmekampusta.fi/fi/makelanrinteen-kampus
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Helsingin Mäkelänrinteessä pääkaupunkiseudun urheiluakatemia Urhean tiloissa. Liikunta- ja koulutuspalveluita pääkaupunkiseudun urheilijoille.
+[ ] telephone: +358-44-7755-200
+[ ] email: viestinta@kolmekampusta.fi
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Mäkelänkatu 47
+  [ ] addressLocality: Helsinki
+  [ ] addressRegion: Uusimaa
+  [ ] postalCode: 00550
+  [ ] addressCountry: FI
+geo:
+  [ ] @type: GeoCoordinates
+  [ ] latitude: 60.199632
+  [ ] longitude: 24.947058
+amenityFeature (16 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Urhea-halli (multi-sport hall)
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Mäkelänrinne Swimming Hall (50m competition pool)
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Separate diving pool
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Public ball hall (floorball, volleyball, badminton, basketball)
+  [ ] value: true
+  --- item 5 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Gymnastics hall
+  [ ] value: true
+  --- item 6 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Combat sports area (judo, wrestling — 920 m²)
+  [ ] value: true
+  --- item 7 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Adjacent football fields (Kumpulanlaakso, Käpylä)
+  [ ] value: true
+  --- item 8 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Helsinki Velodrome (nearby)
+  [ ] value: true
+  --- item 9 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Mäkelänrinne Upper Secondary School (sports school)
+  [ ] value: true
+  --- item 10 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Water exercise classes
+  [ ] value: true
+  --- item 11 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Aquajogging
+  [ ] value: true
+  --- item 12 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Swimming schools
+  [ ] value: true
+  --- item 13 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Public swim hall access
+  [ ] value: true
+  --- item 14 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Public gym access
+  [ ] value: true
+  --- item 15 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Accessible facilities
+  [ ] value: true
+  --- item 16 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Sports school athlete services
+  [ ] value: true
+[ ] sport (42 items):
+    - American Football
+    - Athletics
+    - Badminton
+    - Basketball
+    - Beach Volleyball
+    - Boxing
+    - Brazilian Jiu-Jitsu
+    - Climbing
+    - Combat Sports
+    - CrossFit
+    - Cycling
+    - Dance
+    - Diving
+    - Figure Skating
+    - Floorball
+    - Football
+    - Golf
+    - Gymnastics
+    - Handball
+    - Ice Hockey
+    - Judo
+    - Karate
+    - Kickboxing
+    - Mixed Martial Arts
+    - Muay Thai
+    - Orienteering
+    - Padel
+    - Pickleball
+    - Powerlifting
+    - Racket Sports
+    - Rhythmic Gymnastics
+    - Sailing
+    - Speed Skating
+    - Squash
+    - Swimming
+    - Synchronised Skating
+    - Table Tennis
+    - Tennis
+    - Trampolining
+    - Volleyball
+    - Weight Training
+    - Wrestling
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+containedInPlace:
+  [ ] @type: AdministrativeArea
+  [ ] name: Helsinki, Finland
+[ ] priceRange: €€
+[ ] currenciesAccepted: EUR
+[ ] paymentAccepted (6 items):
+    - Cash
+    - Credit Card
+    - Debit Card
+    - Bank Transfer
+    - Invoice
+    - ePassi
+
+--- @graph entity 2: "EducationalOrganization" ---
+@id: https://www.kolmekampusta.fi/makelanrinne#educationalOrganization
+[ ] @type: EducationalOrganization
+[ ] @id: https://www.kolmekampusta.fi/makelanrinne#educationalOrganization
+[ ] name: Mäkelänrinne — Kolmen kampuksen urheiluopisto (koulutusorganisaatio)
+[ ] alternateName: Helsingin koulutus
+[ ] url: https://www.kolmekampusta.fi/fi/makelanrinteen-kampus
+[ ] description: Mäkelänrinteen kampus toimii pääkaupunkiseudun urheiluakatemia Urhean tiloissa, tarjoten liikunta- ja koulutuspalveluita pääkaupunkiseudun urheilijoille ja koulutettaville.
+[ ] location → https://www.kolmekampusta.fi/makelanrinne#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+memberOf:
+  [ ] @type: Organization
+  [ ] name: Pääkaupunkiseudun Urheiluakatemia Urhea
+  [ ] url: https://urhea.fi/
+
+======================================================================
+tag-06-smart-content.html
+======================================================================
+
+(DYNAMIC JS tag — reads data from live page DOM at runtime.)
+(No static facts to verify here. Test on live page with DevTools.)
+
+======================================================================
+tag-07-smart-section.html
+======================================================================
+
+(DYNAMIC JS tag — reads data from live page DOM at runtime.)
+(No static facts to verify here. Test on live page with DevTools.)
+
+======================================================================
+tag-08-debug.html
+======================================================================
+
+(DYNAMIC JS tag — reads data from live page DOM at runtime.)
+(No static facts to verify here. Test on live page with DevTools.)
+
+======================================================================
+tag-09-lake-pool.html
+======================================================================
+
+@type: ["PublicSwimmingPool","SportsActivityLocation"]
+@id: https://www.kolmekampusta.fi/lakepool#facility
+[ ] @type (2 items):
+    - PublicSwimmingPool
+    - SportsActivityLocation
+[ ] @id: https://www.kolmekampusta.fi/lakepool#facility
+[ ] name: Lake Pool Pajulahti
+[ ] alternateName: Pajulahden Lake Pool
+[ ] url: https://www.kolmekampusta.fi/fi/vapaa-aika/aktiviteetit/lakepoolpajulahti
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Lake Pool yhdistää urheilulliset aktiviteetit, luontoa lähellä olevan tunnelman ja rennon oleskelun. Uimareille tarjolla 25 metrin uintiradat järvinäköalalla.
+[ ] telephone: +358-44-7755-313
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+amenityFeature (4 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: 25-meter swimming lanes
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Lakeside location
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Relaxation area
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Accessible facilities
+  [ ] value: true
+[ ] sport (2 items):
+    - Swimming
+    - Water Sports
+[ ] isAccessibleForFree: false
+[ ] publicAccess: true
+[ ] priceRange: €€
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-10-adventure-park.html
+======================================================================
+
+@type: ["SportsActivityLocation","TouristAttraction"]
+@id: https://www.kolmekampusta.fi/seikkailupuisto#facility
+[ ] @type (2 items):
+    - SportsActivityLocation
+    - TouristAttraction
+[ ] @id: https://www.kolmekampusta.fi/seikkailupuisto#facility
+[ ] name: Pajulahden Seikkailupuisto
+[ ] alternateName: Pajulahti Adventure Park
+[ ] url: https://www.kolmekampusta.fi/fi/vapaa-aika/aktiviteetit/seikkailupuisto
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Aktiivinen kiipeilypuisto, jossa seikkailijat etenevät käyttäen omaa kehoaan ja ongelmanratkaisutaitojaan. 14 erilaista rataa eri vaikeustasoilla.
+[ ] telephone: +358-44-7755-810
+[ ] email: seikkailupuisto@kolmekampusta.fi
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+amenityFeature (4 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: 14 climbing courses
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Multiple difficulty levels
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Safety equipment included
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Outdoor location
+  [ ] value: true
+[ ] sport (3 items):
+    - Climbing
+    - Adventure Sports
+    - Rope Course
+[ ] isAccessibleForFree: false
+[ ] publicAccess: true
+[ ] priceRange: €€
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-11-swimming-hall.html
+======================================================================
+
+@type: ["PublicSwimmingPool","SportsActivityLocation"]
+@id: https://www.kolmekampusta.fi/uimahalli#facility
+[ ] @type (2 items):
+    - PublicSwimmingPool
+    - SportsActivityLocation
+[ ] @id: https://www.kolmekampusta.fi/uimahalli#facility
+[ ] name: Pajulahden uimahalli
+[ ] url: https://www.kolmekampusta.fi/fi/vapaa-aika/aktiviteetit/pajulahden-uimahalli
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Pajulahden sisäuimahalli urheilijoille ja kaikenikäisille uimareille.
+[ ] telephone: +358-44-7755-313
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+amenityFeature (4 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Indoor swimming pool
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Swimming lanes
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Changing rooms
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Accessible facilities
+  [ ] value: true
+[ ] sport (1 items):
+    - Swimming
+[ ] isAccessibleForFree: false
+[ ] publicAccess: true
+[ ] priceRange: €€
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-12-taito-360.html
+======================================================================
+
+@type: "SportsActivityLocation"
+@id: https://www.kolmekampusta.fi/taito360#facility
+[ ] @type: SportsActivityLocation
+[ ] @id: https://www.kolmekampusta.fi/taito360#facility
+[ ] name: TAITO 360
+[ ] alternateName: TAITO 360 motoristen taitojen harjoittelu- ja kuntoilualue
+[ ] url: https://www.kolmekampusta.fi/fi/urheilu/urheilun-palvelut/taito-360
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Motoristen taitojen harjoittelu- ja kuntoilualue Pajulahdessa. Monipuolinen alue koordinaation, ketteryyden ja toiminnallisen kunnon kehittämiseen.
+[ ] telephone: +358-44-7755-313
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+amenityFeature (3 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Motor skills training equipment
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Functional fitness area
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Agility and coordination training
+  [ ] value: true
+[ ] sport (3 items):
+    - Functional Fitness
+    - Motor Skills
+    - Athletic Conditioning
+[ ] priceRange: €€
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-13-recovery-center.html
+======================================================================
+
+@type: ["HealthClub","MedicalBusiness"]
+@id: https://www.kolmekampusta.fi/recoverycenter#facility
+[ ] @type (2 items):
+    - HealthClub
+    - MedicalBusiness
+[ ] @id: https://www.kolmekampusta.fi/recoverycenter#facility
+[ ] name: Pajulahden palautumiskeskus
+[ ] alternateName: Pajulahti Recovery Center
+[ ] url: https://www.kolmekampusta.fi/fi/urheilu/urheilun-palvelut/pajulahden-palautumiskeskus
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Urheilijoiden palautumiseen erikoistunut keskus Pajulahdessa. Modernit palautumismetodit ja huippuluokan asiantuntemus.
+[ ] telephone: +358-44-7755-313
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+amenityFeature (5 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Cold therapy / ice baths
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Heat therapy / sauna
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Massage therapy
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Recovery equipment
+  [ ] value: true
+  --- item 5 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Specialized recovery programs
+  [ ] value: true
+[ ] medicalSpecialty: SportsMedicine
+[ ] priceRange: €€
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-14-sporttipassi.html
+======================================================================
+
+@type: "SportsClub"
+@id: https://www.kolmekampusta.fi/sporttipassi#facility
+[ ] @type: SportsClub
+[ ] @id: https://www.kolmekampusta.fi/sporttipassi#facility
+[ ] name: Kisakallion Sporttipassi
+[ ] url: https://www.kolmekampusta.fi/fi/vapaa-aika/aktiviteetit/kisakallion-sporttipassi
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Kisakallion Sporttipassi tarjoaa pääsyn monipuolisiin urheilu- ja hyvinvointipalveluihin Kisakallion kampuksella.
+[ ] telephone: +358-19-31511
+[ ] email: kisakallio@kolmekampusta.fi
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Kaarina Karin tie 4
+  [ ] addressLocality: Lohja
+  [ ] addressRegion: Uusimaa
+  [ ] postalCode: 08360
+  [ ] addressCountry: FI
+[ ] sport (6 items):
+    - Gymnastics
+    - Cheerleading
+    - Combat Sports
+    - Racket Sports
+    - Swimming
+    - Fitness
+[ ] priceRange: €€
+[ ] currenciesAccepted: EUR
+[ ] paymentAccepted (6 items):
+    - Cash
+    - Credit Card
+    - Debit Card
+    - Bank Transfer
+    - Invoice
+    - ePassi
+[ ] containedInPlace → https://www.kolmekampusta.fi/kisakallio#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-15-kisakallio-sauna.html
+======================================================================
+
+@type: "SportsActivityLocation"
+@id: https://www.kolmekampusta.fi/kisakallio-sauna#facility
+[ ] @type: SportsActivityLocation
+[ ] @id: https://www.kolmekampusta.fi/kisakallio-sauna#facility
+[ ] name: Kisakallion sauna ja uinti
+[ ] alternateName (2 items):
+    - Kisakallion rantasauna
+    - Kisakallio Beach Sauna
+[ ] url: https://www.kolmekampusta.fi/fi/vapaa-aika/aktiviteetit/kisakallion-rantasauna
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Kisakallion rantasauna Lohjanjärven rannalla. Saunan jälkeen rentoutuminen järvellä uimalla tai kahlailemalla.
+[ ] telephone: +358-19-31511
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Kaarina Karin tie 4
+  [ ] addressLocality: Lohja
+  [ ] addressRegion: Uusimaa
+  [ ] postalCode: 08360
+  [ ] addressCountry: FI
+amenityFeature (4 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Lakeside sauna
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Lake swimming access
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Changing facilities
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Outdoor relaxation area
+  [ ] value: true
+[ ] sport (1 items):
+    - Swimming
+[ ] priceRange: €€
+[ ] containedInPlace → https://www.kolmekampusta.fi/kisakallio#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-16-altitude-training.html
+======================================================================
+
+@type: ["SportsActivityLocation","Service"]
+@id: https://www.kolmekampusta.fi/altitude#facility
+[ ] @type (2 items):
+    - SportsActivityLocation
+    - Service
+[ ] @id: https://www.kolmekampusta.fi/altitude#facility
+[ ] name: Korkeanpaikan harjoittelu
+[ ] alternateName: High-Altitude Training
+[ ] url: https://www.kolmekampusta.fi/fi/urheilu/urheilun-palvelut/korkeanpaikan-harjoittelu
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Korkeanpaikan harjoittelutila urheilijoiden suorituskyvyn parantamiseen. Hapenpuutosolosuhteissa tapahtuva harjoittelu.
+[ ] telephone: +358-44-7755-313
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+amenityFeature (3 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Altitude chamber
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Hypoxic training environment
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Performance monitoring equipment
+  [ ] value: true
+[ ] priceRange: €€
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-17-testing-services.html
+======================================================================
+
+@type: ["MedicalBusiness","Service"]
+@id: https://www.kolmekampusta.fi/testing#facility
+[ ] @type (2 items):
+    - MedicalBusiness
+    - Service
+[ ] @id: https://www.kolmekampusta.fi/testing#facility
+[ ] name: Testauspalvelut
+[ ] alternateName: Sports Performance Testing Services
+[ ] url: https://www.kolmekampusta.fi/fi/urheilu/urheilun-palvelut/testauspalvelut
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Suorituskyvyn testaus ja analytiikkapalvelut urheilijoille ja kuntoilijoille. Modernit testimenetelmät ja huippuluokan asiantuntijatiimi.
+[ ] telephone: +358-44-7755-313
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+[ ] medicalSpecialty (2 items):
+    - SportsMedicine
+    - Physiotherapy
+[ ] serviceType: Sports performance testing and analysis
+areaServed:
+  [ ] @type: Country
+  [ ] name: Finland
+[ ] priceRange: €€
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-18-equipment-rental.html
+======================================================================
+
+@type: "Service"
+@id: https://www.kolmekampusta.fi/equipment-rental#service
+[ ] @type: Service
+[ ] @id: https://www.kolmekampusta.fi/equipment-rental#service
+[ ] name: Väline- ja kenttävuokraus
+[ ] alternateName: Equipment and Field Rental
+[ ] url: https://www.kolmekampusta.fi/fi/vapaa-aika/aktiviteetit/valine-ja-kenttavuokraus
+[ ] description: Urheiluvälineiden ja liikuntakenttien vuokraus Pajulahdessa ja Kisakalliossa. Vuokrattavia kenttiä: tennis, sulkapallo, jalkapallo, koripallo, lentopallo, salibandy, käsipallo ja beach volley. Välineitä: tennis-, sulkapallo- ja padelmailoja sekä eri lajien palloja, verkkoja, mattoja ja harjoitusvälineitä. Lake Pool ja Lohjanjärvi: kajakit, kanootit, SUP-laudat, vesipyörät ja soutuveneet. Talvikaudella maastosukset, fatbiket ja lumikengät. Lisäksi polkupyörät, kickbiket ja frisbeegolfkiekot vapaa-ajan käyttöön.
+[ ] serviceType: Sports equipment and venue rental
+[ ] provider → https://www.kolmekampusta.fi/#organization
+areaServed (2 items):
+  --- item 1 https://www.kolmekampusta.fi/pajulahti#location ---
+  [ ] @id: https://www.kolmekampusta.fi/pajulahti#location
+  --- item 2 https://www.kolmekampusta.fi/kisakallio#location ---
+  [ ] @id: https://www.kolmekampusta.fi/kisakallio#location
+
+======================================================================
+tag-19-restaurants.html
+======================================================================
+
+--- @graph entity 1: "Restaurant" ---
+@id: https://www.kolmekampusta.fi/restaurants/iso-kukkanen#restaurant
+[ ] @type: Restaurant
+[ ] @id: https://www.kolmekampusta.fi/restaurants/iso-kukkanen#restaurant
+[ ] name: Ravintola Iso-Kukkanen
+[ ] url: https://www.kolmekampusta.fi/fi/ravintolapalvelut
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Pajulahden pääravintola. Monipuolinen ja maittava ruokavalikoima urheilijoille, vieraille ja paikallisille. Kanresta-konsernin operoima.
+[ ] telephone: +358-44-7755-370
+[ ] email: pajulahtivuorop@kanresta.fi
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+[ ] servesCuisine (3 items):
+    - Finnish
+    - International
+    - Sports Nutrition
+[ ] priceRange: €€
+[ ] currenciesAccepted: EUR
+[ ] paymentAccepted (6 items):
+    - Cash
+    - Credit Card
+    - Debit Card
+    - Bank Transfer
+    - Invoice
+    - ePassi
+[ ] acceptsReservations: true
+amenityFeature (5 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Group dining
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Buffet service
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Special diets accommodated
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Catering for events
+  [ ] value: true
+  --- item 5 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Brunch service
+  [ ] value: true
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+--- @graph entity 2: "CafeOrCoffeeShop" ---
+@id: https://www.kolmekampusta.fi/restaurants/keihas#cafe
+[ ] @type: CafeOrCoffeeShop
+[ ] @id: https://www.kolmekampusta.fi/restaurants/keihas#cafe
+[ ] name: Kahvila Keihäs
+[ ] alternateName: Café Keihäs
+[ ] url: https://www.kolmekampusta.fi/fi/ravintolapalvelut
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Pajulahden päivittäinen kahvila Ravintola Iso-Kukkasen rinnalla. Kahvilatuotteita ja kevyttä syötävää.
+[ ] telephone: +358-44-7755-370
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Pajulahdentie 167
+  [ ] addressLocality: Lahti
+  [ ] addressRegion: Päijät-Häme
+  [ ] postalCode: 15560
+  [ ] addressCountry: FI
+[ ] servesCuisine (3 items):
+    - Coffee
+    - Pastries
+    - Light meals
+[ ] priceRange: €
+[ ] currenciesAccepted: EUR
+[ ] paymentAccepted (4 items):
+    - Cash
+    - Credit Card
+    - Debit Card
+    - ePassi
+[ ] containedInPlace → https://www.kolmekampusta.fi/pajulahti#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+--- @graph entity 3: "Restaurant" ---
+@id: https://www.kolmekampusta.fi/restaurants/rantamakasiini#restaurant
+[ ] @type: Restaurant
+[ ] @id: https://www.kolmekampusta.fi/restaurants/rantamakasiini#restaurant
+[ ] name: Ravintola Rantamakasiini
+[ ] url: https://www.kolmekampusta.fi/fi/ravintolapalvelut
+[ ] image (1 items):
+    - {{js.og.image.or.fallback}}
+[ ] description: Kisakallion ravintola Lohjanjärven rannalla. Sopii yritysjuhliin, seminaareihin ja erityistapahtumiin.
+[ ] telephone: +358-50-529-6514
+[ ] email: ravintola.kisakallio@kolmekampusta.fi
+address:
+  [ ] @type: PostalAddress
+  [ ] streetAddress: Kaarina Karin tie 4
+  [ ] addressLocality: Lohja
+  [ ] addressRegion: Uusimaa
+  [ ] postalCode: 08360
+  [ ] addressCountry: FI
+[ ] servesCuisine (3 items):
+    - Finnish
+    - International
+    - Event Catering
+[ ] priceRange: €€
+[ ] currenciesAccepted: EUR
+[ ] paymentAccepted (6 items):
+    - Cash
+    - Credit Card
+    - Debit Card
+    - Bank Transfer
+    - Invoice
+    - ePassi
+[ ] acceptsReservations: true
+amenityFeature (4 items):
+  --- item 1 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Lakeside dining
+  [ ] value: true
+  --- item 2 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Event venue
+  [ ] value: true
+  --- item 3 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Conference catering
+  [ ] value: true
+  --- item 4 (LocationFeatureSpecification) ---
+  [ ] @type: LocationFeatureSpecification
+  [ ] name: Group dining
+  [ ] value: true
+[ ] containedInPlace → https://www.kolmekampusta.fi/kisakallio#location
+[ ] parentOrganization → https://www.kolmekampusta.fi/#organization
+
+======================================================================
+tag-20-vocational-education.html
+======================================================================
+
+@type: "EducationalOccupationalProgram"
+@id: https://www.kolmekampusta.fi/koulutus/ammatillinen-koulutus#program
+[ ] @type: EducationalOccupationalProgram
+[ ] @id: https://www.kolmekampusta.fi/koulutus/ammatillinen-koulutus#program
+[ ] name: Ammatillinen koulutus
+[ ] alternateName (2 items):
+    - Vocational Education
+    - Liikunta-alan ammatillinen koulutus
+[ ] url: https://www.kolmekampusta.fi/fi/koulutus/koulutukset/ammatillinen-koulutus
+[ ] description: Kolmen kampuksen urheiluopiston ammatillinen koulutus liikunta-alalla. Tutkintoon johtava koulutus, jossa valmistutaan urheilun ja liikunnan ammattilaiseksi.
+[ ] provider → https://www.kolmekampusta.fi/#organization
+[ ] programType: Vocational training
+educationalCredentialAwarded (3 items):
+  --- item 1 (EducationalOccupationalCredential) ---
+  [ ] @type: EducationalOccupationalCredential
+  [ ] name: Liikunnanohjauksen perustutkinto
+  [ ] credentialCategory: Vocational qualification
+  [ ] competencyRequired: Physical education and sports instruction
+  --- item 2 (EducationalOccupationalCredential) ---
+  [ ] @type: EducationalOccupationalCredential
+  [ ] name: Valmentajan ammattitutkinto
+  [ ] credentialCategory: Further vocational qualification
+  [ ] competencyRequired: Coaching
+  --- item 3 (EducationalOccupationalCredential) ---
+  [ ] @type: EducationalOccupationalCredential
+  [ ] name: Liikunnan ja valmennuksen erikoisammattitutkinto
+  [ ] credentialCategory: Specialist vocational qualification
+  [ ] competencyRequired: Sports and coaching
+[ ] occupationalCategory (4 items):
+    - Sports coach
+    - Physical education instructor
+    - Personal trainer
+    - Sports advisor
+[ ] educationalProgramMode (2 items):
+    - Full-time
+    - Part-time
+[ ] inLanguage: fi
+[ ] applicationStartDate: 2026-02-17
+[ ] applicationDeadline: 2026-03-17
+offers:
+  [ ] @type: Offer
+  [ ] category: Government-funded education
+  [ ] price: 0
+  [ ] priceCurrency: EUR
+  [ ] availability: https://schema.org/InStock
+location (2 items):
+  --- item 1 https://www.kolmekampusta.fi/pajulahti#location ---
+  [ ] @id: https://www.kolmekampusta.fi/pajulahti#location
+  --- item 2 https://www.kolmekampusta.fi/kisakallio#location ---
+  [ ] @id: https://www.kolmekampusta.fi/kisakallio#location
+
+======================================================================
+tag-21-apprenticeship.html
+======================================================================
+
+@type: "WorkBasedProgram"
+@id: https://www.kolmekampusta.fi/koulutus/oppisopimuskoulutus#program
+[ ] @type: WorkBasedProgram
+[ ] @id: https://www.kolmekampusta.fi/koulutus/oppisopimuskoulutus#program
+[ ] name: Oppisopimuskoulutus
+[ ] alternateName (2 items):
+    - Apprenticeship Training
+    - Apprenticeship Education
+[ ] url: https://www.kolmekampusta.fi/fi/koulutus/koulutukset/oppisopimuskoulutus
+[ ] description: Oppisopimuskoulutus on tapa hankkia ammatillinen tutkinto työn ohessa. Yhdistää käytännön työn ja teoreettiset opinnot Kolmen kampuksen urheiluopistossa.
+[ ] provider → https://www.kolmekampusta.fi/#organization
+[ ] programType: Apprenticeship
+[ ] educationalCredentialAwarded (3 items):
+    - Liikunnanohjauksen perustutkinto
+    - Valmentajan ammattitutkinto
+    - Liikunnan ja valmennuksen erikoisammattitutkinto
+[ ] occupationalCategory (3 items):
+    - Sports coach
+    - Physical education instructor
+    - Personal trainer
+[ ] educationalProgramMode: Work-based
+[ ] inLanguage: fi
+trainingSalary:
+  [ ] @type: MonetaryAmountDistribution
+  [ ] name: Apprentice salary (collective agreement based)
+  [ ] currency: EUR
+offers:
+  [ ] @type: Offer
+  [ ] category: Government-funded education
+  [ ] price: 0
+  [ ] priceCurrency: EUR
+  [ ] availability: https://schema.org/InStock
+location (2 items):
+  --- item 1 https://www.kolmekampusta.fi/pajulahti#location ---
+  [ ] @id: https://www.kolmekampusta.fi/pajulahti#location
+  --- item 2 https://www.kolmekampusta.fi/kisakallio#location ---
+  [ ] @id: https://www.kolmekampusta.fi/kisakallio#location
+
+======================================================================
+tag-22-continuing-education.html
+======================================================================
+
+@type: "EducationalOccupationalProgram"
+@id: https://www.kolmekampusta.fi/koulutus/taydennyskoulutus#program
+[ ] @type: EducationalOccupationalProgram
+[ ] @id: https://www.kolmekampusta.fi/koulutus/taydennyskoulutus#program
+[ ] name: Täydennyskoulutus
+[ ] alternateName (2 items):
+    - Continuing Education
+    - Professional Development Courses
+[ ] url: https://www.kolmekampusta.fi/fi/koulutus/koulutukset/taydennyskoulutus
+[ ] description: Kolmen kampuksen urheiluopiston täydennyskoulutus liikunta-alan ammattilaisille. Lyhyitä kurssimuotoisia koulutuksia osaamisen päivittämiseen.
+[ ] provider → https://www.kolmekampusta.fi/#organization
+[ ] programType: Continuing education
+[ ] occupationalCategory (4 items):
+    - Sports coach
+    - Physical education instructor
+    - Personal trainer
+    - Physiotherapist
+[ ] educationalProgramMode (3 items):
+    - Short course
+    - Online
+    - Hybrid
+[ ] inLanguage (2 items):
+    - fi
+    - en
+location (2 items):
+  --- item 1 https://www.kolmekampusta.fi/pajulahti#location ---
+  [ ] @id: https://www.kolmekampusta.fi/pajulahti#location
+  --- item 2 https://www.kolmekampusta.fi/kisakallio#location ---
+  [ ] @id: https://www.kolmekampusta.fi/kisakallio#location
+
+======================================================================
+tag-23-liberal-adult-education.html
+======================================================================
+
+@type: "EducationalOccupationalProgram"
+@id: https://www.kolmekampusta.fi/koulutus/vapaan-sivistystyon-koulutus#program
+[ ] @type: EducationalOccupationalProgram
+[ ] @id: https://www.kolmekampusta.fi/koulutus/vapaan-sivistystyon-koulutus#program
+[ ] name: Vapaan sivistystyön koulutus
+[ ] alternateName (2 items):
+    - Liberal Adult Education
+    - Non-formal Adult Education
+[ ] url: https://www.kolmekampusta.fi/fi/koulutus/koulutukset/vapaan-sivistystyon-koulutus
+[ ] description: Kolmen kampuksen urheiluopiston vapaan sivistystyön koulutus. Avointa, joustavaa ja monimuotoista oppimista liikunnasta, hyvinvoinnista ja terveydestä kiinnostuneille.
+[ ] provider → https://www.kolmekampusta.fi/#organization
+[ ] programType: Liberal adult education
+[ ] educationalProgramMode (3 items):
+    - Open enrollment
+    - Short course
+    - Workshop
+[ ] inLanguage (2 items):
+    - fi
+    - en
+location (2 items):
+  --- item 1 https://www.kolmekampusta.fi/pajulahti#location ---
+  [ ] @id: https://www.kolmekampusta.fi/pajulahti#location
+  --- item 2 https://www.kolmekampusta.fi/kisakallio#location ---
+  [ ] @id: https://www.kolmekampusta.fi/kisakallio#location
+
+======================================================================
+tag-24-jobposting.html
+======================================================================
+
+(DYNAMIC JS tag — reads data from live page DOM at runtime.)
+(No static facts to verify here. Test on live page with DevTools.)
+
+======================================================================
+TOTAL: 26 tag files processed, 1037 facts to verify.
+======================================================================

@@ -1,6 +1,6 @@
 # Information roundup — fact-check what's in the schema
 
-This document lists every piece of information embedded in the 25 GTM schema tags, organized for easy verification. Run through each section and confirm the values are correct. Anything wrong → tell me and I'll patch both `gtm-tags-production.md` and the corresponding file in `/tags/`.
+This document lists every piece of information embedded in the 26 GTM schema tags, organized for easy verification. Run through each section and confirm the values are correct. Anything wrong → tell me and I'll patch both `gtm-tags-production.md` and the corresponding file in `/tags/`.
 
 **Source files**: `gtm-tags-production.md` (master) + `/tags/*.html` (per-tag). Both files are kept in sync.
 
@@ -469,7 +469,7 @@ Sports coach, Physical education instructor, Personal trainer, Physiotherapist.
 
 ---
 
-## 13. Smart dispatchers (Tags 6, 7, 8 — what they pull at runtime)
+## 13. Dynamic runtime tags (Tags 6, 7, 8, 24 — what they pull at runtime)
 
 These tags read existing page content rather than holding static data. Listed here for completeness.
 
@@ -496,11 +496,28 @@ URL-based dispatch:
 ### Tag 8 — Debug logger (console only)
 On every page, logs a console group `[Schema.org]` listing all JSON-LD blocks present + their `@type` and `@id`. Used for QA. Can be disabled in production once stable.
 
+### Tag 24 — JobPosting auto-extract (fires on per-job pages)
+Fires on `/fi/meista/avoimet-tyopaikat/{slug}` (any per-job page). Reads:
+- `h1.node__title` → title (strips "Avoin työpaikka: " prefix)
+- `.field--name-field-content` → description (HTML)
+- `.node__meta span` → datePosted (parses Finnish "26 toukokuu 2026" or "26.5.2026")
+- `.field--name-field-description` → hiring organization name
+- `.field--name-field-media-image img` → image (optional)
+- Regex on description text:
+  - `viimeistään DD.MM.YYYY` → validThrough
+  - `Määräaikainen` / `Vakituinen` / `Toistaiseksi` / `Osa-aikainen` / `Harjoittel-` → employmentType
+
+jobLocation always emits all 3 campuses (Pajulahti, Kisakallio, Mäkelänrinne) with full inline addresses matching Tags 3, 4, 5. Work campus is negotiable per content team, so listing all 3 is the most truthful representation.
+
+Graceful degradation: required fields (title, description, datePosted) must succeed or the tag emits nothing. Optional fields (validThrough, employmentType, image) are omitted if not detected.
+
+**Content-author conventions required for full extraction:** see `gtm-tags-production.md` Tag 24 section for the table of patterns.
+
 ---
 
 ## 14. Cross-relationships (entity graph structure)
 
-The 25 tags form a hierarchical entity graph via `@id` cross-references:
+The 26 tags form a hierarchical entity graph via `@id` cross-references:
 
 ```
 3K Organization (Tag 1)
@@ -526,10 +543,12 @@ The 25 tags form a hierarchical entity graph via `@id` cross-references:
 ├── Kisakallio #educationalOrganization (Tag 4, sub-entity)
 ├── Mäkelänrinne #educationalOrganization (Tag 5, sub-entity) → member of Urhea
 │
-└── Education programs (Tags 20–23) → location: Pajulahti + Kisakallio
+├── Education programs (Tags 20–23) → location: Pajulahti + Kisakallio
+│
+└── JobPostings (Tag 24, per-page) → hiringOrganization + jobLocation: all 3 campuses
 ```
 
-Equipment Rental (Tag 18) crosses both campuses via `areaServed`.
+Equipment Rental (Tag 18) crosses both campuses via `areaServed`. JobPostings (Tag 24) reference the Organization (`@id` link to Tag 1) and all three campus locations (`@id` links to Tags 3, 4, 5) for graph coherence.
 
 ---
 

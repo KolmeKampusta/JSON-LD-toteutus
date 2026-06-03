@@ -1,4 +1,4 @@
-# GTM Tags — Production-Ready (all 25 tags, final form)
+# GTM Tags — Production-Ready (all 26 tags, final form)
 
 **Date:** 2026-05-17
 **Status:** Ready for production paste into GTM container `GTM-WD3C92NG`
@@ -20,6 +20,7 @@ This document is the **single canonical source** for the GTM tag bodies, constan
 - All Hotel/LodgingBusiness tags — `priceRange: "€€"` (required by Google for LodgingBusiness).
 - Tag 6 — uses Drupal SmartDate field selectors for event dates, falls through gracefully if data missing.
 - Tag 7 — restaurant branch / sports camps / holiday packages branches all deleted (incomplete entity prevention).
+- Tag 24 — JobPosting auto-extract from Drupal DOM for `/fi/meista/avoimet-tyopaikat/{slug}` pages. Always emits all 3 campuses as jobLocation (work campus is negotiable per content team). Graceful degradation: omits validThrough/employmentType if Finnish content patterns don't match.
 - Every tag: **Custom HTML**, **Consent: No additional consent required**.
 
 ---
@@ -73,7 +74,7 @@ function() {
 
 ---
 
-## B. Triggers (23 total)
+## B. Triggers (24 total)
 
 | # | Trigger name | Type | Condition | Used by |
 |---|---|---|---|---|
@@ -100,6 +101,7 @@ function() {
 | S | Apprenticeship | Page View | `Page Path matches RegEx /koulutus/koulutukset/oppisopimuskoulutus$` | Tag 21 |
 | T | Continuing Education | Page View | `Page Path matches RegEx /koulutus/koulutukset/taydennyskoulutus$` | Tag 22 |
 | U | Liberal Adult Education | Page View | `Page Path matches RegEx /koulutus/koulutukset/vapaan-sivistystyon-koulutus$` | Tag 23 |
+| V | Avoimet työpaikat (per-job) | DOM Ready | `Page Path matches RegEx ^/fi/meista/avoimet-tyopaikat/[^/]+/?$` | Tag 24 |
 
 ---
 
@@ -1858,6 +1860,196 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
     { "@id": "https://www.kolmekampusta.fi/kisakallio#location" }
   ]
 }
+</script>
+```
+
+---
+
+### TAG 24 — JobPosting auto-extract (Google for Jobs)
+
+**Trigger:** V — Avoimet työpaikat (per-job)
+
+This tag fires on every per-job page under `/fi/meista/avoimet-tyopaikat/{slug}` (but not the index page). It auto-extracts JobPosting fields from the Drupal DOM and emits JSON-LD only when all of Google's required fields (title, description, datePosted, hiringOrganization, jobLocation) succeed. Optional fields (validThrough, employmentType, image) are omitted gracefully if not detected.
+
+**jobLocation strategy:** Always emits all 3 campuses (Pajulahti, Kisakallio, Mäkelänrinne) as the job location array, because the actual work campus is negotiable or unknown at posting time per content team. Inline addresses match Tags 3, 4 and 5 exactly; `@id` references link the JobPosting into the existing schema graph.
+
+**Content-author conventions required for full extraction:**
+
+| Field | Pattern expected in content | Example |
+|---|---|---|
+| title | Page title prefixed with "Avoin työpaikka: " (prefix is stripped) | "Avoin työpaikka: Valmennuskeskuspäällikkö" |
+| validThrough | "viimeistään DD.MM.YYYY" anywhere in description | "viimeistään 15.6.2026" |
+| employmentType | One of: "Määräaikainen", "Vakituinen", "Toistaiseksi", "Osa-aikainen", "Harjoittel-" | "Määräaikainen tehtävä 31.12.2028 saakka" |
+
+If a convention is not met, the corresponding field is omitted but the tag still emits (graceful degradation). The JobPosting will still validate in Rich Results Test, but Google may show a warning for missing validThrough.
+
+```html
+<script>
+(function() {
+  // Tag 24 - JobPosting (Google for Jobs)
+  //
+  // Fires on per-job pages matching /fi/meista/avoimet-tyopaikat/{slug}
+  // Auto-extracts JobPosting fields from Drupal DOM. Fields embedded in
+  // the description text (validThrough, employmentType) are detected via
+  // Finnish regex patterns.
+  //
+  // jobLocation: always lists all 3 campuses, because the actual work
+  // campus is typically negotiable or not known at posting time.
+  //
+  // Emits JSON-LD only if Google's required fields (title, description,
+  // datePosted) all succeed. Optional fields (validThrough,
+  // employmentType, image) are omitted gracefully when not detected.
+
+  var ORG_ID = "https://www.kolmekampusta.fi/#organization";
+  var ORG_NAME_FALLBACK = "Kolmen kampuksen urheiluopisto Oy";
+  var ORG_URL = "https://www.kolmekampusta.fi/";
+
+  var CAMPUSES = [
+    {
+      "@id": "https://www.kolmekampusta.fi/pajulahti#location",
+      "@type": "Place",
+      "name": "Pajulahti",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pajulahdentie 167",
+        "postalCode": "15560",
+        "addressLocality": "Lahti",
+        "addressRegion": "Päijät-Häme",
+        "addressCountry": "FI"
+      }
+    },
+    {
+      "@id": "https://www.kolmekampusta.fi/kisakallio#location",
+      "@type": "Place",
+      "name": "Kisakallio",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kaarina Karin tie 4",
+        "postalCode": "08360",
+        "addressLocality": "Lohja",
+        "addressRegion": "Uusimaa",
+        "addressCountry": "FI"
+      }
+    },
+    {
+      "@id": "https://www.kolmekampusta.fi/makelanrinne#location",
+      "@type": "Place",
+      "name": "Mäkelänrinne",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mäkelänkatu 47",
+        "postalCode": "00550",
+        "addressLocality": "Helsinki",
+        "addressRegion": "Uusimaa",
+        "addressCountry": "FI"
+      }
+    }
+  ];
+
+  var MONTHS_FI = {
+    'tammikuu': '01', 'tammikuuta': '01',
+    'helmikuu': '02', 'helmikuuta': '02',
+    'maaliskuu': '03', 'maaliskuuta': '03',
+    'huhtikuu': '04', 'huhtikuuta': '04',
+    'toukokuu': '05', 'toukokuuta': '05',
+    'kesäkuu': '06', 'kesäkuuta': '06',
+    'heinäkuu': '07', 'heinäkuuta': '07',
+    'elokuu': '08', 'elokuuta': '08',
+    'syyskuu': '09', 'syyskuuta': '09',
+    'lokakuu': '10', 'lokakuuta': '10',
+    'marraskuu': '11', 'marraskuuta': '11',
+    'joulukuu': '12', 'joulukuuta': '12'
+  };
+
+  function pad2(n) { return String(n).length === 1 ? '0' + n : String(n); }
+
+  // === Required: title ===
+  var titleEl = document.querySelector('h1.node__title');
+  if (!titleEl) return;
+  var titleText = titleEl.textContent.trim();
+  var title = titleText.replace(/^\s*Avoin\s+työpaikka\s*[:\-–—]?\s*/i, '').trim();
+  if (!title) return;
+
+  // === Required: description ===
+  var descEl = document.querySelector('.field--name-field-content');
+  if (!descEl) return;
+  var descriptionHtml = descEl.innerHTML.trim();
+  var descriptionText = descEl.textContent;
+  if (!descriptionHtml) return;
+
+  // === Required: datePosted ===
+  var dateEl = document.querySelector('.node__meta span');
+  var datePosted = null;
+  if (dateEl) {
+    var dateText = dateEl.textContent.trim();
+    var dm = dateText.match(/(\d{1,2})\s+([a-zäöA-ZÄÖ]+)\s+(\d{4})/);
+    if (dm) {
+      var month = MONTHS_FI[dm[2].toLowerCase()];
+      if (month) datePosted = dm[3] + '-' + month + '-' + pad2(dm[1]);
+    }
+    if (!datePosted) {
+      var dn = dateText.match(/(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+      if (dn) datePosted = dn[3] + '-' + pad2(dn[2]) + '-' + pad2(dn[1]);
+    }
+  }
+  if (!datePosted) return;
+
+  // === Required: hiringOrganization ===
+  var orgEl = document.querySelector('.field--name-field-description');
+  var orgName = (orgEl && orgEl.textContent.trim()) || ORG_NAME_FALLBACK;
+
+  // === Optional: image ===
+  var imageUrl = null;
+  var imageEl = document.querySelector('.field--name-field-media-image img');
+  if (imageEl) {
+    var src = imageEl.getAttribute('src');
+    if (src) {
+      try { imageUrl = new URL(src, location.origin).href; } catch (e) {}
+    }
+  }
+
+  // === Optional: validThrough — pattern "viimeistään DD.MM.YYYY" ===
+  var validThrough = null;
+  var vm = descriptionText.match(/viimeist[äa]{1,2}n\s+(\d{1,2})\.(\d{1,2})\.(\d{4})/i);
+  if (vm) {
+    validThrough = vm[3] + '-' + pad2(vm[2]) + '-' + pad2(vm[1]) + 'T23:59:59+03:00';
+  }
+
+  // === Optional: employmentType — Finnish keywords ===
+  var employmentType = null;
+  if (/m[äa]{1,2}r[äa]{1,2}aikai/i.test(descriptionText)) employmentType = 'TEMPORARY';
+  else if (/vakituin|toistaiseksi/i.test(descriptionText)) employmentType = 'FULL_TIME';
+  else if (/osa[-\s]?aikai/i.test(descriptionText)) employmentType = 'PART_TIME';
+  else if (/harjoittel/i.test(descriptionText)) employmentType = 'INTERN';
+
+  // === Build schema ===
+  var schema = {
+    "@context": "https://schema.org/",
+    "@type": "JobPosting",
+    "title": title,
+    "description": descriptionHtml,
+    "datePosted": datePosted,
+    "url": location.href,
+    "hiringOrganization": {
+      "@id": ORG_ID,
+      "@type": "Organization",
+      "name": orgName,
+      "url": ORG_URL
+    },
+    "jobLocation": CAMPUSES,
+    "directApply": false
+  };
+
+  if (validThrough) schema.validThrough = validThrough;
+  if (employmentType) schema.employmentType = employmentType;
+  if (imageUrl) schema.image = imageUrl;
+
+  // === Emit ===
+  var s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.text = JSON.stringify(schema);
+  document.head.appendChild(s);
+})();
 </script>
 ```
 
