@@ -72,7 +72,7 @@
   if (/^\/(ryhmat-ja-leirit|groups-and-camps)\//.test(path)) {
     inject({
       "@context": "https://schema.org",
-      "@type": ["TouristTrip", "Product"],
+      "@type": "TouristTrip",
       "@id": canonical + "#trip",
       "name": ogTitle,
       "description": ogDescription,

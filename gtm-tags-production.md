@@ -2,13 +2,17 @@
 
 **Date:** 2026-05-17
 **Status:** Ready for production paste into GTM container `GTM-WD3C92NG`
+**Last updated:** 2026-06-08 — Google Search Console structured-data fixes (Errors A/B/C) + Pajulahti `addressLocality` Lahti→Nastola
 **Source files:** `kolmekampusta-gtm-schema.md` (original master) + `kolmekampusta-gtm-schema-refined.md` (audit/refinement record)
 
 This document is the **single canonical source** for the GTM tag bodies, constants, and triggers. Every audit fix from v1.0 through v4 is baked in. Paste these tag bodies directly into GTM.
 
 ## Notes baked into this file
 
-- All Pajulahti facility tags use `addressLocality: "Lahti"` (post-2016 merger) and `addressRegion: "Päijät-Häme"`.
+- All Pajulahti facility tags use `addressLocality: "Nastola"` (the postal locality / postitoimipaikka, matching Drupal's event address fields) and `addressRegion: "Päijät-Häme"`. The municipality is Lahti (Nastola merged into Lahti in 2016) — kept only in Tag 3's `containedInPlace` AdministrativeArea `"Lahti, Finland"`.
+- **GSC Error A fix (2026-06-08)** — Tag 7 `/ryhmat-ja-leirit/*` branch: removed `Product` from `@type` (kept `TouristTrip` alone). A `Product` with no `offers`/`review`/`aggregateRating` is invalid for Google; we can't add a price and review/rating are forbidden (DigitalGuest).
+- **GSC Error B fix (2026-06-08)** — Tag 6 `SportsEvent`: the event `location` now inlines the full canonical campus `Place` (name + address) instead of a bare `{"@id": ".../<campus>#location"}`. The campus Place entities (Tags 3/4/5) do not fire on event pages, so the reference resolved to a location with no `name`/`address`. Detection broadened to match inflected forms (Pajulahden, Kisakalliossa, …) via location-name → URL slug → title.
+- **GSC Error C fix (2026-06-08)** — Variable `js.og.image.or.fallback` strips the `?h=…&itok=…` query string. GTM JS-escapes `=`/`&` to `\x3d`/`\x26` when injecting the value into a `ld+json` Custom HTML tag, which is invalid JSON ("bad escape sequence"). This affected every static tag using the image variable, not only the three GSC flagged.
 - All Kisakallio facility tags use `addressLocality: "Lohja"` and `addressRegion: "Uusimaa"`.
 - Tags 14, 18, 22, 23 — `offers`/`makesOffer` blocks removed (no price → incomplete Offer per Google).
 - Tag 14 — `@type` simplified to single `"SportsClub"`.
@@ -57,7 +61,11 @@ Tags 3, 3a, 4, 4a, 5, 9, 10, 11, 12, 13, 14, 15, 16, 17, and the 3 restaurants i
 function() {
   var meta = document.querySelector('meta[property="og:image"]');
   if (meta && meta.getAttribute('content')) {
-    return meta.getAttribute('content');
+    // Strip the ?h=...&itok=... query string. GTM JS-escapes '=' and '&' to
+    // \x3d / \x26 when substituting this value into a Custom HTML
+    // <script type="application/ld+json"> tag, which is invalid JSON ("bad
+    // escape sequence"). A query-less path yields only \/ which is valid JSON.
+    return meta.getAttribute('content').split('?')[0];
   }
   // Fallback when og:image is missing (currently only the homepage on this site)
   return 'https://www.kolmekampusta.fi/sites/default/files/2025-06/pajulahti_ilmakuva_ns_web_0869.jpg';
@@ -65,7 +73,7 @@ function() {
 ```
 
 **Behavior:**
-- On a page with `<meta property="og:image" content="X">` → returns `X`
+- On a page with `<meta property="og:image" content="X">` → returns `X` **with any `?…` query string removed** (Drupal image-style derivatives carry a `?h=…&itok=…` token). This stripping is required: GTM JS-escapes `=`/`&` to `\x3d`/`\x26` when substituting the value into a `ld+json` Custom HTML tag, which is **invalid JSON** ("bad escape sequence"). A query-less path only yields `\/`, which is valid JSON. The derivative still resolves (HTTP 200) without the token.
 - On a page without that meta → returns the Pajulahti aerial as fallback
 
 **Testing note:** When you paste a tag using `{{js.og.image.or.fallback}}` into validator.schema.org or RRT Code mode, the validator sees the literal `{{js.og.image.or.fallback}}` string as the image value — not a valid URL. Two ways to test:
@@ -273,7 +281,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Pajulahdentie 167",
-    "addressLocality": "Lahti",
+    "addressLocality": "Nastola",
     "addressRegion": "Päijät-Häme",
     "postalCode": "15560",
     "addressCountry": "FI"
@@ -412,7 +420,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Pajulahdentie 167",
-    "addressLocality": "Lahti",
+    "addressLocality": "Nastola",
     "addressRegion": "Päijät-Häme",
     "postalCode": "15560",
     "addressCountry": "FI"
@@ -422,7 +430,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
     "latitude": 60.969189,
     "longitude": 25.943861
   },
-  "hasMap": "https://www.google.com/maps/place/Pajulahdentie+167,+15560+Lahti",
+  "hasMap": "https://www.google.com/maps/place/Pajulahdentie+167,+15560+Nastola",
   "priceRange": "€€",
   "currenciesAccepted": "EUR",
   "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Invoice", "ePassi"],
@@ -978,15 +986,23 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
         }
       }
 
-      var campusId = null;
-      var lowerName = (locName || '').toLowerCase();
-      if (/pajulahti/.test(lowerName)) campusId = "https://www.kolmekampusta.fi/pajulahti#location";
-      else if (/kisakallio/.test(lowerName)) campusId = "https://www.kolmekampusta.fi/kisakallio#location";
-      else if (/(makelanrinne|mäkelänrinne|helsink|urhea)/.test(lowerName)) campusId = "https://www.kolmekampusta.fi/makelanrinne#location";
+      // Campus venues are inlined in full (name + canonical address): the campus
+      // Place entities (Tags 3/4/5) do NOT fire on event pages, so a bare
+      // {"@id": ...} reference would leave Google with no location name/address.
+      var CAMPUSES = {
+        pajulahti:    { "@type": "Place", "name": "Pajulahti",    "address": { "@type": "PostalAddress", "streetAddress": "Pajulahdentie 167",  "postalCode": "15560", "addressLocality": "Nastola",  "addressRegion": "Päijät-Häme", "addressCountry": "FI" } },
+        kisakallio:   { "@type": "Place", "name": "Kisakallio",   "address": { "@type": "PostalAddress", "streetAddress": "Kaarina Karin tie 4", "postalCode": "08360", "addressLocality": "Lohja",    "addressRegion": "Uusimaa",     "addressCountry": "FI" } },
+        makelanrinne: { "@type": "Place", "name": "Mäkelänrinne", "address": { "@type": "PostalAddress", "streetAddress": "Mäkelänkatu 47",     "postalCode": "00550", "addressLocality": "Helsinki", "addressRegion": "Uusimaa",     "addressCountry": "FI" } }
+      };
+      var hay = ((locName || '') + ' ' + location.pathname + ' ' + (ogTitle || '')).toLowerCase();
+      var campusKey = null;
+      if (/pajulah/.test(hay)) campusKey = 'pajulahti';
+      else if (/kisakall/.test(hay)) campusKey = 'kisakallio';
+      else if (/m[aä]kel[aä]nrinne|urhea|helsing/.test(hay)) campusKey = 'makelanrinne';
 
       var eventLocation = null;
-      if (campusId) {
-        eventLocation = { "@id": campusId };
+      if (campusKey) {
+        eventLocation = CAMPUSES[campusKey];
       } else if (locName && addrObj) {
         eventLocation = { "@type": "Place", "name": locName, "address": addrObj };
       } else if (addrObj) {
@@ -1113,7 +1129,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   if (/^\/(ryhmat-ja-leirit|groups-and-camps)\//.test(path)) {
     inject({
       "@context": "https://schema.org",
-      "@type": ["TouristTrip", "Product"],
+      "@type": "TouristTrip",
       "@id": canonical + "#trip",
       "name": ogTitle,
       "description": ogDescription,
@@ -1224,7 +1240,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Pajulahdentie 167",
-    "addressLocality": "Lahti",
+    "addressLocality": "Nastola",
     "addressRegion": "Päijät-Häme",
     "postalCode": "15560",
     "addressCountry": "FI"
@@ -1267,7 +1283,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Pajulahdentie 167",
-    "addressLocality": "Lahti",
+    "addressLocality": "Nastola",
     "addressRegion": "Päijät-Häme",
     "postalCode": "15560",
     "addressCountry": "FI"
@@ -1308,7 +1324,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Pajulahdentie 167",
-    "addressLocality": "Lahti",
+    "addressLocality": "Nastola",
     "addressRegion": "Päijät-Häme",
     "postalCode": "15560",
     "addressCountry": "FI"
@@ -1350,7 +1366,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Pajulahdentie 167",
-    "addressLocality": "Lahti",
+    "addressLocality": "Nastola",
     "addressRegion": "Päijät-Häme",
     "postalCode": "15560",
     "addressCountry": "FI"
@@ -1389,7 +1405,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Pajulahdentie 167",
-    "addressLocality": "Lahti",
+    "addressLocality": "Nastola",
     "addressRegion": "Päijät-Häme",
     "postalCode": "15560",
     "addressCountry": "FI"
@@ -1506,7 +1522,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Pajulahdentie 167",
-    "addressLocality": "Lahti",
+    "addressLocality": "Nastola",
     "addressRegion": "Päijät-Häme",
     "postalCode": "15560",
     "addressCountry": "FI"
@@ -1544,7 +1560,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Pajulahdentie 167",
-    "addressLocality": "Lahti",
+    "addressLocality": "Nastola",
     "addressRegion": "Päijät-Häme",
     "postalCode": "15560",
     "addressCountry": "FI"
@@ -1608,7 +1624,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Pajulahdentie 167",
-        "addressLocality": "Lahti",
+        "addressLocality": "Nastola",
         "addressRegion": "Päijät-Häme",
         "postalCode": "15560",
         "addressCountry": "FI"
@@ -1640,7 +1656,7 @@ Each tag below: **Tag type = Custom HTML**, **Consent = No additional consent re
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Pajulahdentie 167",
-        "addressLocality": "Lahti",
+        "addressLocality": "Nastola",
         "addressRegion": "Päijät-Häme",
         "postalCode": "15560",
         "addressCountry": "FI"
@@ -1913,7 +1929,7 @@ If a convention is not met, the corresponding field is omitted but the tag still
         "@type": "PostalAddress",
         "streetAddress": "Pajulahdentie 167",
         "postalCode": "15560",
-        "addressLocality": "Lahti",
+        "addressLocality": "Nastola",
         "addressRegion": "Päijät-Häme",
         "addressCountry": "FI"
       }

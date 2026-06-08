@@ -163,15 +163,23 @@
         }
       }
 
-      var campusId = null;
-      var lowerName = (locName || '').toLowerCase();
-      if (/pajulahti/.test(lowerName)) campusId = "https://www.kolmekampusta.fi/pajulahti#location";
-      else if (/kisakallio/.test(lowerName)) campusId = "https://www.kolmekampusta.fi/kisakallio#location";
-      else if (/(makelanrinne|mäkelänrinne|helsink|urhea)/.test(lowerName)) campusId = "https://www.kolmekampusta.fi/makelanrinne#location";
+      // Campus venues are inlined in full (name + canonical address): the campus
+      // Place entities (Tags 3/4/5) do NOT fire on event pages, so a bare
+      // {"@id": ...} reference would leave Google with no location name/address.
+      var CAMPUSES = {
+        pajulahti:    { "@type": "Place", "name": "Pajulahti",    "address": { "@type": "PostalAddress", "streetAddress": "Pajulahdentie 167",  "postalCode": "15560", "addressLocality": "Nastola",  "addressRegion": "Päijät-Häme", "addressCountry": "FI" } },
+        kisakallio:   { "@type": "Place", "name": "Kisakallio",   "address": { "@type": "PostalAddress", "streetAddress": "Kaarina Karin tie 4", "postalCode": "08360", "addressLocality": "Lohja",    "addressRegion": "Uusimaa",     "addressCountry": "FI" } },
+        makelanrinne: { "@type": "Place", "name": "Mäkelänrinne", "address": { "@type": "PostalAddress", "streetAddress": "Mäkelänkatu 47",     "postalCode": "00550", "addressLocality": "Helsinki", "addressRegion": "Uusimaa",     "addressCountry": "FI" } }
+      };
+      var hay = ((locName || '') + ' ' + location.pathname + ' ' + (ogTitle || '')).toLowerCase();
+      var campusKey = null;
+      if (/pajulah/.test(hay)) campusKey = 'pajulahti';
+      else if (/kisakall/.test(hay)) campusKey = 'kisakallio';
+      else if (/m[aä]kel[aä]nrinne|urhea|helsing/.test(hay)) campusKey = 'makelanrinne';
 
       var eventLocation = null;
-      if (campusId) {
-        eventLocation = { "@id": campusId };
+      if (campusKey) {
+        eventLocation = CAMPUSES[campusKey];
       } else if (locName && addrObj) {
         eventLocation = { "@type": "Place", "name": locName, "address": addrObj };
       } else if (addrObj) {

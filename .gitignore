@@ -5,6 +5,7 @@ package.json
 
 # Investigation temp files (curled HTML from live site during the audit)
 _audit_html/
+_audit_live/
 
 # Playwright session artifacts (browser state, screenshots)
 .playwright-mcp/
