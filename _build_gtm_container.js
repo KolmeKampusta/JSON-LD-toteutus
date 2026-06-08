@@ -107,7 +107,7 @@ const TAGS = [
 const JS_VARIABLE = {
   id: '3001',
   name: 'js.og.image.or.fallback',
-  code: "function() {\n  var meta = document.querySelector('meta[property=\"og:image\"]');\n  if (meta && meta.getAttribute('content')) {\n    return meta.getAttribute('content');\n  }\n  // Fallback when og:image is missing (currently only the homepage on this site)\n  return 'https://www.kolmekampusta.fi/sites/default/files/2025-06/pajulahti_ilmakuva_ns_web_0869.jpg';\n}"
+  code: "function() {\n  var meta = document.querySelector('meta[property=\"og:image\"]');\n  if (meta && meta.getAttribute('content')) {\n    // Strip ?h=...&itok=... query so GTM does not emit invalid JSON escapes for = and &.\n    return meta.getAttribute('content').split('?')[0];\n  }\n  // Fallback when og:image is missing (currently only the homepage on this site)\n  return 'https://www.kolmekampusta.fi/sites/default/files/2025-06/pajulahti_ilmakuva_ns_web_0869.jpg';\n}"
 };
 
 const CONSTANTS = [

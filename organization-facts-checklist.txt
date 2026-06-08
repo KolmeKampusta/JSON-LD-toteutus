@@ -263,7 +263,7 @@ tag-03-pajulahti-campus.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -582,7 +582,7 @@ tag-03a-pajulahti-accommodation.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -590,7 +590,7 @@ geo:
   [ ] @type: GeoCoordinates
   [ ] latitude: 60.969189
   [ ] longitude: 25.943861
-[ ] hasMap: https://www.google.com/maps/place/Pajulahdentie+167,+15560+Lahti
+[ ] hasMap: https://www.google.com/maps/place/Pajulahdentie+167,+15560+Nastola
 [ ] priceRange: €€
 [ ] currenciesAccepted: EUR
 [ ] paymentAccepted (6 items):
@@ -1322,7 +1322,7 @@ tag-09-lake-pool.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -1373,7 +1373,7 @@ tag-10-adventure-park.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -1423,7 +1423,7 @@ tag-11-swimming-hall.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -1470,7 +1470,7 @@ tag-12-taito-360.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -1515,7 +1515,7 @@ tag-13-recovery-center.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -1653,7 +1653,7 @@ tag-16-altitude-training.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -1694,7 +1694,7 @@ tag-17-testing-services.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -1747,7 +1747,7 @@ tag-19-restaurants.html
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI
@@ -1803,7 +1803,7 @@ amenityFeature (5 items):
 address:
   [ ] @type: PostalAddress
   [ ] streetAddress: Pajulahdentie 167
-  [ ] addressLocality: Lahti
+  [ ] addressLocality: Nastola
   [ ] addressRegion: Päijät-Häme
   [ ] postalCode: 15560
   [ ] addressCountry: FI

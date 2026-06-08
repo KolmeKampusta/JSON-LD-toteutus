@@ -74,7 +74,7 @@ Alpine Skiing, American Football, Archery, Athletics, Badminton, Basketball, Bea
 | **Email** | pajulahti@kolmekampusta.fi |
 | **Street address** | Pajulahdentie 167 |
 | **Postal code** | 15560 |
-| **City** | Lahti |
+| **City** | Nastola (postal city / postitoimipaikka; municipality = Lahti) |
 | **Region** | Päijät-Häme |
 | **Country** | FI |
 | **GPS coordinates** | 60.969189, 25.943861 |
@@ -123,9 +123,9 @@ Same as Tag 1's master list, minus: Alpine Skiing, Biathlon, Curling, Diving, Es
 | **URL** | https://www.kolmekampusta.fi/fi/majoitus/pajulahti |
 | **Phone** | +358-44-7755-313 |
 | **Email** | pajulahti@kolmekampusta.fi |
-| **Address** | Same as campus (Pajulahdentie 167, 15560 Lahti) |
+| **Address** | Same as campus (Pajulahdentie 167, 15560 Nastola) |
 | **GPS** | 60.969189, 25.943861 |
-| **Google Maps link** | https://www.google.com/maps/place/Pajulahdentie+167,+15560+Lahti |
+| **Google Maps link** | https://www.google.com/maps/place/Pajulahdentie+167,+15560+Nastola |
 | **Price range** | €€ |
 | **Currency / payments** | EUR; Cash, Credit Card, Debit Card, Bank Transfer, Invoice, ePassi |
 | **Check-in time** | 15:00 |
@@ -244,7 +244,7 @@ American Football, Athletics, Badminton, Basketball, Beach Volleyball, Boxing, B
 
 ## 8. Pajulahti facilities (Tags 9–13, 16, 17)
 
-All share Pajulahti's address (Pajulahdentie 167, 15560 Lahti, Päijät-Häme), all have price range €€, all reference Pajulahti as parent location.
+All share Pajulahti's address (Pajulahdentie 167, 15560 Nastola, Päijät-Häme), all have price range €€, all reference Pajulahti as parent location.
 
 ### Tag 9 — Lake Pool Pajulahti
 | Field | Value |
@@ -371,7 +371,7 @@ All three restaurants live on the single landing page `/fi/ravintolapalvelut`.
 | Name | Ravintola Iso-Kukkanen |
 | Phone | +358-44-7755-370 |
 | Email | pajulahtivuorop@kanresta.fi |
-| Address | Pajulahdentie 167, 15560 Lahti, Päijät-Häme |
+| Address | Pajulahdentie 167, 15560 Nastola, Päijät-Häme |
 | Operated by | Kanresta-konserni |
 | Cuisine | Finnish, International, Sports Nutrition |
 | Price range | €€ |
@@ -386,7 +386,7 @@ All three restaurants live on the single landing page `/fi/ravintolapalvelut`.
 | Alt name | Café Keihäs |
 | Phone | +358-44-7755-370 (same as Iso-Kukkanen) |
 | Email | (none) |
-| Address | Pajulahdentie 167, 15560 Lahti, Päijät-Häme |
+| Address | Pajulahdentie 167, 15560 Nastola, Päijät-Häme |
 | Type | Cafe or Coffee Shop |
 | Cuisine | Coffee, Pastries, Light meals |
 | Price range | € |
